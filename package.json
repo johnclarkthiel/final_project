@@ -2,10 +2,22 @@
   "name": "final_project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "angular-route": "^1.5.3",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.4.10",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  }
 }
