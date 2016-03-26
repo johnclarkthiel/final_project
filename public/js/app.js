@@ -1,1 +1,1 @@
-var app = angular.module("ennui", ["ngRoute", "user-auth"]);
+var app = angular.module('ennuiOnwee', ["ngRoute", 'user-auth']);

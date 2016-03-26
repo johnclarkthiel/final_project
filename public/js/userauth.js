@@ -1,4 +1,4 @@
-var app = angular.module("user-auth", ["ngRoute"]);
+var app = angular.module('user-auth', ['ngRoute']);
 //using http for ajax requests to the server, $scope to access elements on the page, $rootScope to make objects globally accessible and location to change partials to render new page views, using route params to get params in url
 app.controller('AuthController', ['$http', '$scope', '$location', '$rootScope', '$routeParams', function($http, $scope, $location, $rootScope, $routeParams) {
 	$rootScope.user = null;
@@ -18,10 +18,15 @@ app.controller('AuthController', ['$http', '$scope', '$location', '$rootScope', 
 }]); //END USER CONTROLLER
 
 //front end router to take signed up users to login page
-app.config(['$routeProvider', 'locationProvider', function($routeProvider,$locationProvider){
-	$locationProvider.html5Mode({ enabled : true });
-	$routeProvider
-	.when('/login', {
+app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+	$locationProvider.html5Mode({ enabled: true }); // tell angular to use push state
+	$routeProvider.
+	when('/', {
+		templateUrl: 'partials/mainpage.html',
+		controller: 'AuthController',
+		controllerAs: 'authCtrl'
+	}).
+	when('/login', {
 		templateUrl: 'partials/login.html',
 		controller: 'AuthController',
 		controllerAs: 'authCtrl'
