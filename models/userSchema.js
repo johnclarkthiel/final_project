@@ -1,10 +1,11 @@
 var mongoose = require("mongoose");
-var locationSchema = require("./locationSchema.js").schema;
+var locationSchema = require("./daySchema.js").schema;
 var bcrypt = require("bcrypt-nodejs");
 
 var userSchema = new mongoose.Schema({
 	username: String,
 	password: String,
+	bored_instances: Number,
 	day: [daySchema]
 });
 
