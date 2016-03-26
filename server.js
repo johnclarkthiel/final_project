@@ -17,19 +17,19 @@ var mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/final_project';
 // require('./config/passport')(passport);
 
 //middleware
-// app.use(express.static('public'))
-// app.use(morgan('dev'));
-// app.use(bodyParser.urlencoded({extended: true}));
-// app.use(bodyParser.json());
+app.use(express.static('public'))
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 //passport middleware
-// var passport = require('passport');
+var passport = require('passport');
 
-// var session = require('express-session');
+var session = require('express-session');
 
-// app.use(session({name: 'final_project_auth_app', secret: 'final'}));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(session({name: 'final_project_auth_app', secret: 'final'}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get('/', function(req,res){
 	res.send('WORKING ROOT PAGE');
