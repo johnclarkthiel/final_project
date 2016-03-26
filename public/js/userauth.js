@@ -51,7 +51,7 @@ app.controller('AuthController', ['$http', '$scope', '$location', '$rootScope', 
 		console.log('log out working');
 		// console.log($rootScope.user);
 		$http.get('/user/' + $rootScope.user._id + '/logout').then(function(response){
-			console.log('LOGOUT RES ', response);
+			// console.log('LOGOUT RES ', response);
 			$rootScope.user = null;
 			console.log('USER ',$rootScope.user);
 		},

@@ -1,21 +1,26 @@
 <div ng-if='!user' ng-controller='AuthController as authCtrl'>
-	<h1>Ennui |änˈwē|</h1>
-	<h2>a feeling of listlessness and dissatisfaction arising from a lack of occupation or excitement</h2>
+	<blockquote>
+		<h1>Ennui |änˈwē|</h1>
+		<h2>a feeling of listlessness and dissatisfaction arising from a lack of occupation or excitement</h2>
+	</blockquote>
 		<h3>Bored? Sign up. It might help.</h3>
 		<form>
-			<h4>Name</h4><br/><hr/>
+			<h4 class='center-align'>Name</h4><br/><hr/>
 			<input type='text' ng-model='name' id='name' placeholder='Your name goes here'><br/>
-			<h4>Email</h4><br/><hr/>
+			<h4 class='center-align'>Email</h4><br/><hr/>
 			<input type='text' ng-model='email' id='email' placeholder='Your email goes here'><br/>
-			<h4>Password</h4><br/><hr/>
+			<h4 class='center-align'>Password</h4><br/><hr/>
 			<input type='password' ng-model='password' id='password' placeholder='Your password goes here'><br/>
-			<button ng-click='authUser()'>Sign up</button> 
+			<button ng-click='authUser()' id='signupButton'class="btn waves-effect waves-light hoverable blue-grey darken-4" type="submit" name="action">Sign up<i class="material-icons right">send</i>
+  		</button>
+
 		</form>
 
 		<a href="/login">Login if you're already bored and signed up</a>
 </div>
 
 <div ng-if='user'>
-	<h1>STUFF WILL Go HERE EVENTUALLY</h1>
+	<!-- <button class='hoverable' id='boredButton'>Bored?</button> -->
+	<a class="waves-effect waves-light btn-large hoverable blue-grey darken-4" id='boredButton'><span id='boredButtonTxt'>Bored?</span></a>
 
 </div>
