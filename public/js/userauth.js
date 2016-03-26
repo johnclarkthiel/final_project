@@ -1,7 +1,7 @@
 var app = angular.module("user-auth", ["ngRoute"]);
 //using http for ajax requests to the server, $scope to access elements on the page, $rootScope to make objects globally accessible and location to change partials to render new page views
 app.controller('AuthController', ['$http', '$scope', '$location', '$rootScope', function($http, $scope, $location, $rootScope) {
-
+	$rootScope.user = null;
 
 
 
