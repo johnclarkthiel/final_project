@@ -8,6 +8,17 @@ app.controller('AuthController', ['$http', '$scope', '$location', '$rootScope', 
 	//don't need to reference controller in index.html when using scope
 	$scope.authUser = function() {
 		console.log('AUTH USER WORKED!');
+		var userName = $scope.name;
+		var uEmail = $scope.email;
+		var uPassword = $scope.password;
+		console.log("USERNAME EMAIL PASSWORD" + userName + " " + uEmail + " " + uPassword);
+
+		$http.post('/user/signup', {name: userName, email: uEmail, password: uPassword}).then(function(response) {
+			console.log("HERE IS THE RESPONSE", response);
+		},
+		function(err){
+			console.log(err);
+		});
 	};
 
 	$scope.login = function() {

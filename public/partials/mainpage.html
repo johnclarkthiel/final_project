@@ -1,12 +1,13 @@
 <div ng-if='!user' ng-controller='AuthController as authCtrl'>
-	<h1>Ennui</h1>
-		<h2>Are you bored? Sign up and maybe you can assuage it. At the very least, you can track it.</h2>
+	<h1>Ennui |änˈwē|</h1>
+	<h2>a feeling of listlessness and dissatisfaction arising from a lack of occupation or excitement</h2>
+		<h3>Bored? Sign up. It might help.</h3>
 		<form>
-			<h3>Name</h3><br/><hr/>
+			<h4>Name</h4><br/><hr/>
 			<input type='text' ng-model='name' id='name' placeholder='Your name goes here'><br/>
-			<h3>Email</h3><br/><hr/>
+			<h4>Email</h4><br/><hr/>
 			<input type='text' ng-model='email' id='email' placeholder='Your email goes here'><br/>
-			<h3>Password</h3><br/><hr/>
+			<h4>Password</h4><br/><hr/>
 			<input type='password' ng-model='password' id='password' placeholder='Your password goes here'><br/>
 			<button ng-click='authUser()'>Sign up</button> 
 		</form>
