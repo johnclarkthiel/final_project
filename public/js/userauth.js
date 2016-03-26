@@ -33,10 +33,15 @@ app.controller('AuthController', ['$http', '$scope', '$location', '$rootScope', 
 
 		$http.post('/user/login', {email : uEmail, password: uPassword}).then(function(response){
 			console.log("LOGIN RES ", response);
+			$http.get('/user/' + response.data._id).then(function(response){
+				console.log("GET LOGIN RES ", response);
+				$rootScope.user = response.data;
+				$location.path('/');
+			});
 		},
 		function(err){
 			console.log("ERROR ", err);
-		})
+		});
 	};
 
 
