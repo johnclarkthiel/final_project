@@ -22,5 +22,12 @@
 <div ng-if='user'>
 	<!-- <button class='hoverable' id='boredButton'>Bored?</button> -->
 	<a class="waves-effect waves-light btn-large hoverable blue-grey darken-4" id='boredButton'><span id='boredButtonTxt'>Bored?</span></a>
-
+<!-- NEED TO HIDE THIS ... ADD CLICK EVENT FOR THE BORED BUTTON -->
+	<form>
+		<input type='date' ng-model='day' id='day' placeholder="Enter today's date">
+		<textarea ng-model='description' id='description' placeholder="Describe your boredom. Why are you bored?"></textarea>
+		<input type='number' ng-model='severity' id='severity' placeholder='On a scale of 1-10 (1-slightly bored, 10-most bored), rate your boredness'>
+		<button>Add this and kill your boredom</button>
+		<!-- THIS SUBMIT BUTTON WILL RUN A CLICK FUNCTION THAT ADDS THIS DAY AND ROUTES THE USER TO THE SEARCH AREA TO ADD SEARCHES TO THIS PARTICULAR DAY-->
+	</form>
 </div>
