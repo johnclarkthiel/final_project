@@ -14,10 +14,18 @@
 
     <base href="/">
 </head>
+
 <body>
+	
+	<header ng-if='!user'>
+		<nav>
+			<ul>
+				<li><a href="/login">Login</a>
+			</ul>
+		</nav>
+	</header>
 
-
-	<header>
+	<header ng-if='user'>
 		<nav>
 			<ul>
 				<li><a href="/">Home</a>
