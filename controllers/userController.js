@@ -28,6 +28,14 @@ router.post('/signup', passport.authenticate('local-signup', {
 	}
 );
 
+//get user
+router.get('/:id', function(req,res){
+	User.findById(req.params.id, function(err,user){
+		if (err) { console.log("ERROR: ", err) }
+		res.send(user);
+	});
+});
+
 
 
 module.exports = router;
