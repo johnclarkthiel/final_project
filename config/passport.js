@@ -61,7 +61,7 @@ module.exports = function(passport) {
 		passReqToCallback: true
 	}, function(req, email, password, done) {
 		console.log('Req.body within local LOGIN: ', req.body);
-		User.findOne({ 'email': email }, function(err, user) {
+		User.findOne({ 'email': req.body.email }, function(err, user) {
 			if (err) { return done(err) }
 
 			if (!user) {

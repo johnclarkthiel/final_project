@@ -36,6 +36,16 @@ router.get('/:id', function(req,res){
 	});
 });
 
+//login
+router.post('/login', passport.authenticate('local-login', {
+	failureRedirect: '/google.com'
+}), function(req, res) {
+	console.log("LOGIN AND USER AUTH SUCCESS!");
+	console.log("REQ USER @@@@@@@", req.user);
+	res.send(req.user);
+	}
+);
+
 
 
 module.exports = router;

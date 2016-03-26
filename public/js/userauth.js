@@ -27,6 +27,16 @@ app.controller('AuthController', ['$http', '$scope', '$location', '$rootScope', 
 
 	$scope.login = function() {
 		console.log('log in working');
+		var uEmail = $scope.email;
+		var uPassword = $scope.password;
+		console.log("EMAIL PASSWORD " + uEmail + " " + uPassword);
+
+		$http.post('/user/login', {email : uEmail, password: uPassword}).then(function(response){
+			console.log("LOGIN RES ", response);
+		},
+		function(err){
+			console.log("ERROR ", err);
+		})
 	};
 
 
