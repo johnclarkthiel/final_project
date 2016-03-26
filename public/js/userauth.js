@@ -6,6 +6,7 @@ app.controller('AuthController', ['$http', '$scope', '$location', '$rootScope', 
 	this.password = null;
 	this.id = $routeParams.id
 	//don't need to reference controller in index.html when using scope
+	//sign up ... accesses email and pw, sends to server login post route, gets response and changes rootScope user to the response data
 	$scope.authUser = function() {
 		console.log('AUTH USER WORKED!');
 		var userName = $scope.name;
@@ -24,7 +25,7 @@ app.controller('AuthController', ['$http', '$scope', '$location', '$rootScope', 
 			console.log(err);
 		});
 	};
-
+//log in ... accesses email and pw, sends to server login post route, gets response and changes rootScope user to the response data
 	$scope.login = function() {
 		console.log('log in working');
 		var uEmail = $scope.email;
@@ -38,6 +39,19 @@ app.controller('AuthController', ['$http', '$scope', '$location', '$rootScope', 
 				$rootScope.user = response.data;
 				$location.path('/');
 			});
+		},
+		function(err){
+			console.log("ERROR ", err);
+		});
+	};
+//log out ... accesses the global user object using rootScope
+	$rootScope.logOut = function() {
+		console.log('log out working');
+		// console.log($rootScope.user);
+		$http.get('/user/' + $rootScope.user._id + '/logout').then(function(response){
+			console.log('LOGOUT RES ', response);
+			$rootScope.user = null;
+			console.log('USER ',$rootScope.user);
 		},
 		function(err){
 			console.log("ERROR ", err);
