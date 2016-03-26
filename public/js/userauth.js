@@ -12,12 +12,13 @@ app.controller('AuthController', ['$http', '$scope', '$location', '$rootScope', 
 		var userName = $scope.name;
 		var uEmail = $scope.email;
 		var uPassword = $scope.password;
-		console.log("USERNAME EMAIL PASSWORD" + userName + " " + uEmail + " " + uPassword);
-
+		// console.log("USERNAME EMAIL PASSWORD" + userName + " " + uEmail + " " + uPassword);
+		//sends username, email and pw to server post signup route
 		$http.post('/user/signup', {name: userName, email: uEmail, password: uPassword}).then(function(response) {
-			console.log("HERE IS THE RESPONSE", response);
+			// console.log("HERE IS THE RESPONSE", response);
+			//get request to the get user server route, sets the response to rootScope.user to display the user's info
 			$http.get('/user/' + response.data._id).then(function(response){
-				console.log("GET RESPONSE", response);
+				// console.log("GET RESPONSE", response);
 				$rootScope.user = response.data;
 			});
 		},
@@ -30,12 +31,13 @@ app.controller('AuthController', ['$http', '$scope', '$location', '$rootScope', 
 		console.log('log in working');
 		var uEmail = $scope.email;
 		var uPassword = $scope.password;
-		console.log("EMAIL PASSWORD " + uEmail + " " + uPassword);
-
+		// console.log("EMAIL PASSWORD " + uEmail + " " + uPassword);
+		//sends username, email and pw to server post login route
 		$http.post('/user/login', {email : uEmail, password: uPassword}).then(function(response){
-			console.log("LOGIN RES ", response);
+			// console.log("LOGIN RES ", response);
+			//get request to the get user server route, sets the response to rootScope.user to display the user's info
 			$http.get('/user/' + response.data._id).then(function(response){
-				console.log("GET LOGIN RES ", response);
+				// console.log("GET LOGIN RES ", response);
 				$rootScope.user = response.data;
 				$location.path('/');
 			});
