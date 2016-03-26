@@ -36,8 +36,8 @@ app.get('/', function(req,res){
 })
 
 //controllers
-// var userController = require('./controllers/userController.js');
-// app.use('/user', userController);
+var userController = require('./controllers/userController.js');
+app.use('/user', userController);
 
 //mongoose
 mongoose.connect(mongoURI);
