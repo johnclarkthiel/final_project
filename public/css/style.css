@@ -7,13 +7,17 @@ li {
 	border-right: 1px solid white;
 }
 
-#boredButton {
+#boredButton, #boredFormButton {
 	margin-top: 15%;
-	height: 50%;
+	height: 6%;
 	width: 50%;
 	margin-left: 25%;
 }
 
 #boredButtonTxt {
 	font-size: 50px;
+}
+
+input {
+	text-align: center;
 }
