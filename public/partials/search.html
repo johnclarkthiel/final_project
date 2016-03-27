@@ -11,13 +11,12 @@
 
 <form ng-if='searchCtrl.searchBooks'>
 	<h4 class='center'>Search for books:</h4>
-	<input type='text' name='bookSearch' ng-model='searchCtrl.bookSearch' placeholder='Enter an author, book, reviewer, etc.'>
+	<input type='text' name='bookSearch' ng-model='searchCtrl.bookSearch' placeholder='Enter an author'>
 	<button ng-click='searchCtrl.searchForBooks()' class="btn waves-effect waves-light hoverable blue-grey darken-4" type="submit" name="action">Search<i class="material-icons right">send</i>
   </button>
 </form>
 
 <div ng-if='searchCtrl.showResults'>
-	RESULTS:
 	<ul>
 		<li ng-repeat='result in searchCtrl.results'>Movie:<br/>
 			<ol>
@@ -27,6 +26,19 @@
 				<li>Rating: {{result.mpaa_rating}}</li>
 				<li>Review url: <a href="{{result.link.url}}">{{result.link.url}}</a></li>
 				<img src="{{result.multimedia.resource.src}}">
+			</ol><br/><hr/>
+		</li>
+	</ul>
+</div>
+
+<div ng-if='searchCtrl.showBookResults'>
+	<ul>
+		<li ng-repeat='result in searchCtrl.bookresults'>Author: {{result.book_author}}<br/>
+			<ol>
+				<li>Title: {{result.book_title}}</li>
+				<li>Reviewer: {{result.byline}}</li>
+				<li>Summary: {{result.summary}}</li>
+				<li>Review url: <a href="{{result.url}}">{{result.url}}</a></li>
 			</ol><br/><hr/>
 		</li>
 	</ul>
