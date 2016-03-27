@@ -57,6 +57,7 @@ router.post('/:id', function(req,res){
 		//find the user by the reqparam id, push the new day into the user's day array, save the user
 		User.findById(req.params.id, function(err,user){
 			user.day.push(newDay);
+			// user.bored_instances += 1; <<<< this does not work
 			user.save(function(err){
 				if (err) { console.log(err) }
 				res.send(user);

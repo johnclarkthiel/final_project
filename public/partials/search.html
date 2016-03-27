@@ -1,1 +1,26 @@
-<h1>THIS IS WHERE THE SEARCH WILL GO</h1>
+<section ng-controller='SearchController as searchCtrl' id='searchSection'>
+<a ng-click='searchCtrl.showMovieSearch()' class="waves-effect waves-light btn-large hoverable blue-grey darken-4 center">Search New York Times Movies</a>
+<a ng-click='searchCtrl.showBookSearch()' class="waves-effect waves-light btn-large hoverable blue-grey darken-4 center">Search New York Times Books</a>
+
+<form ng-if='searchCtrl.searchMovies'>
+	<h4 class='center'>Search for movies:</h4>
+	<input type='text' name='movieSearch' ng-model='searchCtrl.movieSearch' placeholder='Enter a moview title'> 
+	<button ng-click='searchCtrl.searchForMovies()' class="btn waves-effect waves-light hoverable blue-grey darken-4" type="submit" name="action">Search<i class="material-icons right">send</i>
+  </button>
+</form>
+
+<form ng-if='searchCtrl.searchBooks'>
+	<h4 class='center'>Search for books:</h4>
+	<input type='text' name='bookSearch' ng-model='searchCtrl.bookSearch' placeholder='Enter an author, book, reviewer, etc.'>
+	<button ng-click='searchCtrl.searchForBooks()' class="btn waves-effect waves-light hoverable blue-grey darken-4" type="submit" name="action">Search<i class="material-icons right">send</i>
+  </button>
+</form>
+
+<div ng-if='searchCtrl.showResults'>
+	RESULTS:
+	<ul>
+		<li ng-repeat='show in searchCtrl.results'>RESUlT: {{show}}</li>
+	</ul>
+</div>
+
+</section>

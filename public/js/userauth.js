@@ -60,7 +60,6 @@ app.controller('AuthController', ['$http', '$scope', '$location', '$rootScope', 
 		});
 	};
 
-
 }]); //END USER CONTROLLER
 
 //front end router to take signed up users to login page
