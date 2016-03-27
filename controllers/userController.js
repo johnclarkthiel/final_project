@@ -51,8 +51,10 @@ router.post('/:id', function(req,res){
 	console.log("NEW DAY POST ROUTE WORKING");
 	console.log(req.body);
 	// res.send(req.body)
+	//add and save a day
 	var newDay = new Day(req.body);
 	newDay.save(function(err){
+		//find the user by the reqparam id, push the new day into the user's day array, save the user
 		User.findById(req.params.id, function(err,user){
 			user.day.push(newDay);
 			user.save(function(err){
