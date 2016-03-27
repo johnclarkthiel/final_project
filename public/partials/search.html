@@ -1,47 +1,74 @@
 <section ng-controller='SearchController as searchCtrl' id='searchSection'>
-<a ng-click='searchCtrl.showMovieSearch()' class="waves-effect waves-light btn-large hoverable blue-grey darken-4 center">Search New York Times Movies</a>
-<a ng-click='searchCtrl.showBookSearch()' class="waves-effect waves-light btn-large hoverable blue-grey darken-4 center">Search New York Times Books</a>
-
-<form ng-if='searchCtrl.searchMovies'>
-	<h4 class='center'>Search for movies:</h4>
-	<input type='text' name='movieSearch' ng-model='searchCtrl.movieSearch' placeholder='Enter a moview title'> 
-	<button ng-click='searchCtrl.searchForMovies()' class="btn waves-effect waves-light hoverable blue-grey darken-4" type="submit" name="action">Search<i class="material-icons right">send</i>
-  </button>
+<!-- BUTTONS!!!!! -->
+	<!-- Button for showing movie search -->
+	<a ng-click='searchCtrl.showMovieSearch()' class="waves-effect waves-light btn-large hoverable blue-grey darken-4 center">Search New York Times Movies</a>
+	<!-- Button for showing book search -->
+	<a ng-click='searchCtrl.showBookSearch()' class="waves-effect waves-light btn-large hoverable blue-grey darken-4 center">Search New York Times Books</a>
+	<!-- Button for showing article search -->
+	<a ng-click='searchCtrl.showArticleSearch()' class="waves-effect waves-light btn-large hoverable blue-grey darken-4 center">Search New York Times Articles</a>
+<!-- FORMS!!!!!! -->
+	<!-- Form for movie search -->
+	<form ng-if='searchCtrl.searchMovies'>
+		<h4 class='center'>Search for movies:</h4>
+		<input type='text' name='movieSearch' ng-model='searchCtrl.movieSearch' placeholder='Enter a moview title'> 
+		<button ng-click='searchCtrl.searchForMovies()' class="btn waves-effect waves-light hoverable blue-grey darken-4" type="submit" name="action">Search<i class="material-icons right">send</i>
+	  </button>
+	</form>
+	<!-- Form for book search -->
+	<form ng-if='searchCtrl.searchBooks'>
+		<h4 class='center'>Search for books:</h4>
+		<input type='text' name='bookSearch' ng-model='searchCtrl.bookSearch' placeholder='Enter an author'>
+		<button ng-click='searchCtrl.searchForBooks()' class="btn waves-effect waves-light hoverable blue-grey darken-4" type="submit" name="action">Search<i class="material-icons right">send</i>
+	  </button>
+	</form>
+	<!-- Form for article search -->
+	<form ng-if='searchCtrl.searchArticles'>
+		<h4 class='center'>Search for articles:</h4>
+		<input type='text' name='articleSearch' ng-model='searchCtrl.articleSearch' placeholder='Enter something'>
+		<button ng-click='searchCtrl.searchForArticles()' class="btn waves-effect waves-light hoverable blue-grey darken-4" type="submit" name="action">Search<i class="material-icons right">send</i>
+	  </button>
 </form>
+<!-- SEARCH RESULTS !!!! -->
+<!-- Div containing movie search results -->
+	<div ng-if='searchCtrl.showResults'>
+		<ul>
+			<li ng-repeat='result in searchCtrl.results'>Movie:<br/>
+				<ol>
+					<li>Title: {{result.display_title}}</li>
+					<li>Reviewer: {{result.byline}}</li>
+					<li>Summary: {{result.summary_short}}</li>
+					<li>Rating: {{result.mpaa_rating}}</li>
+					<li>Review url: <a href="{{result.link.url}}">{{result.link.url}}</a></li>
+					<img src="{{result.multimedia.resource.src}}">
+				</ol><br/><hr/>
+			</li>
+		</ul>
+	</div>
+	<!-- Div containing book search results -->
+	<div ng-if='searchCtrl.showBookResults'>
+		<ul>
+			<li ng-repeat='result in searchCtrl.bookresults'>Author: {{result.book_author}}<br/>
+				<ol>
+					<li>Title: {{result.book_title}}</li>
+					<li>Reviewer: {{result.byline}}</li>
+					<li>Summary: {{result.summary}}</li>
+					<li>Review url: <a href="{{result.url}}">{{result.url}}</a></li>
+				</ol><br/><hr/>
+			</li>
+		</ul>
+	</div>
 
-<form ng-if='searchCtrl.searchBooks'>
-	<h4 class='center'>Search for books:</h4>
-	<input type='text' name='bookSearch' ng-model='searchCtrl.bookSearch' placeholder='Enter an author'>
-	<button ng-click='searchCtrl.searchForBooks()' class="btn waves-effect waves-light hoverable blue-grey darken-4" type="submit" name="action">Search<i class="material-icons right">send</i>
-  </button>
-</form>
-
-<div ng-if='searchCtrl.showResults'>
-	<ul>
-		<li ng-repeat='result in searchCtrl.results'>Movie:<br/>
-			<ol>
-				<li>Title: {{result.display_title}}</li>
-				<li>Reviewer: {{result.byline}}</li>
-				<li>Summary: {{result.summary_short}}</li>
-				<li>Rating: {{result.mpaa_rating}}</li>
-				<li>Review url: <a href="{{result.link.url}}">{{result.link.url}}</a></li>
-				<img src="{{result.multimedia.resource.src}}">
-			</ol><br/><hr/>
-		</li>
-	</ul>
-</div>
-
-<div ng-if='searchCtrl.showBookResults'>
-	<ul>
-		<li ng-repeat='result in searchCtrl.bookresults'>Author: {{result.book_author}}<br/>
-			<ol>
-				<li>Title: {{result.book_title}}</li>
-				<li>Reviewer: {{result.byline}}</li>
-				<li>Summary: {{result.summary}}</li>
-				<li>Review url: <a href="{{result.url}}">{{result.url}}</a></li>
-			</ol><br/><hr/>
-		</li>
-	</ul>
-</div>
-
+	<div ng-if='searchCtrl.showArticleResults'>
+		<ul>
+			<li ng-repeat='result in searchCtrl.articleresults'>Headline: {{result.headline.main}}<br/>
+				<ol>
+					<li>{{result.byline.orginal}}</li>
+					<li>Section: {{result.news_desk}}</li>
+					<li>Sub-head: {{result.lead_paragraph}}</li>
+					<li>Story url: <a href="{{result.web_url}}">{{result.web_url}}</a></li>
+					<img src="{{result.multimedia[0].url}}">
+				</ol><br/><hr/>
+			</li>
+		</ul>
+	</div>
 </section>
