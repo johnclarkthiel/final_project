@@ -23,7 +23,7 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 		then(function(response){
 			controller.showResults = true;
 			console.log(response);
-			controller.results = response.data;
+			controller.results = response.data.results;
 			console.log("CONTROLLER RESULTS ", controller.results);
 		}, function(err){
 			console.log(err)

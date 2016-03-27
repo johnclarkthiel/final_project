@@ -19,7 +19,16 @@
 <div ng-if='searchCtrl.showResults'>
 	RESULTS:
 	<ul>
-		<li ng-repeat='show in searchCtrl.results'>RESUlT: {{show}}</li>
+		<li ng-repeat='result in searchCtrl.results'>Movie:<br/>
+			<ol>
+				<li>Title: {{result.display_title}}</li>
+				<li>Reviewer: {{result.byline}}</li>
+				<li>Summary: {{result.summary_short}}</li>
+				<li>Rating: {{result.mpaa_rating}}</li>
+				<li>Review url: <a href="{{result.link.url}}">{{result.link.url}}</a></li>
+				<img src="{{result.multimedia.resource.src}}">
+			</ol><br/><hr/>
+		</li>
 	</ul>
 </div>
 
