@@ -46,6 +46,28 @@ router.post('/login', passport.authenticate('local-login', {
 	}
 );
 
+//CREATE A DAY
+router.post('/:id', function(req,res){
+	console.log("NEW DAY POST ROUTE WORKING");
+	console.log(req.body);
+	// res.send(req.body)
+	var newDay = new Day(req.body);
+	newDay.save(function(err){
+		User.findById(req.params.id, function(err,user){
+			user.day.push(newDay);
+			user.save(function(err){
+				if (err) { console.log(err) }
+				res.send(user);
+			});
+		});
+	});
+});
+
+
+
+
+
+
 
 
 module.exports = router;

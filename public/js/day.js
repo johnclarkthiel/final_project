@@ -9,8 +9,18 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 		this.showBoredForm = !this.showBoredForm;
 	};
 
-	this.addDay() = function() {
+	this.addDay = function() {
 		console.log('ADD DAY BUTTON WORKING');
-	}
+		console.log($rootScope.user);
+		console.log($scope);
+		var day = this.day;
+		console.log("DAY ", day);
+		$http.post('/user/' + $rootScope.user._id, {day: this.day, description: this.description, severity: this.severity}).then(function(response){
+			console.log(response);
+		},
+		function(err){
+			console.log(err);
+		})
+	};
 
 }]);//end Day controller
