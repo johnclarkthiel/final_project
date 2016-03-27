@@ -5,36 +5,54 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 	this.searchMovies = false;
 	this.searchBooks = false;
 	this.searchArticles = false;
+	this.searchBills = false;
 	//values for results from searches ... initially set to zero
 	this.results = null;
 	this.bookresults = null;
+	this.articleresults = null;
+	this.billresults = null;
 
 	//show movie search, cancel previous results
 	this.showMovieSearch = function() {
 		this.searchMovies = !this.searchMovies
 		this.searchBooks = false;
 		this.searchArticles = false;
+		this.searchBills = false;
 		this.bookresults = null;
 		this.articleresults = null;
+		this.billresults = null;
 	};
 	//show book search, cancel previous results
 	this.showBookSearch = function() {
 		this.searchBooks = !this.searchBooks 
 		this.searchMovies = false;
 		this.searchArticles = false;
+		this.searchBills = false;
 		this.results = null;
 		this.articleresults = null;
+		this.billresults = null;
 	};
 	//show book search
 	this.showArticleSearch = function() {
-		this.searchArticles = true;
+		this.searchArticles = !this.searchArticles;
+		this.searchBooks = false;
+		this.searchMovies = false;
+		this.searchBills = false;
+		this.results = null;
+		this.bookresults = null;
+		this.billresults = null;
+	};
+	//show bill search
+	this.showBillSearch = function() {
+		this.searchBills = !this.searchBills;
+		this.searchArticles = false;
 		this.searchBooks = false;
 		this.searchMovies = false;
 		this.results = null;
 		this.bookresults = null;
+		this.articleresults = null;
 	};
-
-
+	//http get request for retrieving movie review data from NYTIMES api
 	this.searchForMovies = function() {
 		console.log("SEARCH MOVIES WORKS!");
 		console.log(this.movieSearch);
@@ -50,7 +68,7 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 			console.log(err)
 		});
 	};
-
+	//http get request for retrieiving book review data from NYTIMES api
 	this.searchForBooks = function() {
 		console.log("SEARCH BOOKS WORKS!");
 		console.log(this.bookSearch);
@@ -66,7 +84,7 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 			console.log(err)
 		});
 	};
-
+	//http get request for retrieving article data from NYTIMES api
 	this.searchForArticles = function() {
 		console.log("SEARCH ARTICLES WORKS!");
 		console.log(this.articleSearch);
@@ -78,6 +96,23 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 			controller.articleresults = response.data.response.docs;
 			console.log("CONTROLLER RESULTS ", controller.articleresults);
 			controller.articleSearch = undefined;
+		}, function(err){
+			console.log(err)
+		});
+	};
+
+	//http get request for retrieving congressional bill data from NYTIMES api
+	this.searchForBills = function() {
+		console.log("SEARCH BILLS WORKS!");
+		console.log(this.billSearch);
+		var controller = this;
+		$http.get('http://api.nytimes.com/svc/politics/v3/us/legislative/congress/114/house/bills/'+this.billSearch+'.json?api-key=d453fc590cc3a176afe519a7462bd095:1:51925285').
+		then(function(response){
+			controller.showBillResults = true;
+			console.log(response);
+			controller.billresults = response.data.results[0].bills;
+			console.log("CONTROLLER RESULTS ", controller.billresults);
+			controller.billSearch = undefined;
 		}, function(err){
 			console.log(err)
 		});
