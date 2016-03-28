@@ -90,17 +90,17 @@
 	<div ng-if='searchCtrl.showBillResults'>
 		<ul>
 			<div ng-if="searchCtrl.showDays" id='addSearchToDay' ng-repeat='day in searchCtrl.days'>
-				THIS WILL DO SOMETHING
-				{{day.day}}
+				Add to this day:<br/><hr/>
+				<button ng-click='searchCtrl.addToDay(day)'>{{day.day}}</button><br/><hr/>
 			</div>
-			<li ng-repeat='result in searchCtrl.billresults'>Title: {{result.title}}<br/>
+			<li ng-repeat='result in searchCtrl.billresults track by $index'>Title: {{result.title}}<br/>
 				<ol>
 					<li>Committees: {{result.committees}}</li>
 					<li>Introduced: {{result.introduced_date}}</li>
 					<li>Latest Major Action: {{result.latest_major_action}}</li>
 					<li>Latest Major Action Date: {{result.latest_major_action_date}}</li>
 					<li>Bill Number: {{result.number}}</li>
-				<button ng-click='searchCtrl.save(result)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center" type="submit" name="action">Save
+				<button ng-click='searchCtrl.save(result, $index)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center" type="submit" name="action">Save
 	  		</button>
 				</ol><br/><hr/>
 			</li>

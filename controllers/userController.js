@@ -8,6 +8,7 @@ var passport = require("passport");
 //requiring schemas
 var User = require('../models/userSchema.js');
 var Day = require('../models/daySchema.js');
+var Search = require('../models/searchSchema.js');
 //Test if working
 router.get('/', function(req,res){
 	res.send('USER CONTROLLER WORKS')
@@ -57,7 +58,11 @@ router.post('/:id', function(req,res){
 		//find the user by the reqparam id, push the new day into the user's day array, save the user
 		User.findById(req.params.id, function(err,user){
 			user.day.push(newDay);
-			// user.bored_instances += 1; <<<< this does not work
+			if (user.bored_instances == null || user.bored_instances == undefined) {
+				user.bored_instances = 1;
+			} else {
+				user.bored_instances = user.bored_instances += 1;
+			}
 			user.save(function(err){
 				if (err) { console.log(err) }
 				res.send(user);
@@ -66,6 +71,32 @@ router.post('/:id', function(req,res){
 	});
 });
 
+//create a saved search result
+router.post('/:id/:day_id/', function(req,res){
+	//create a new search from the saved search being sent
+	var newSearch = new Search(req.body);
+	console.log(newSearch);
+	newSearch.save(function(err){
+		if (err) { console.log(err); }
+
+		User.findById(req.params.id, function(err, user){
+			console.log("USER >>>>> ", user)
+			console.log("USER >>>>> ", user.day)
+			for (var i = 0; i < user.day.length; i ++ ) {
+				if (user.day[i]._id == req.params.day_id) {
+					console.log(user.day[i]);
+					console.log(user.day[i].search);
+					console.log(newSearch)
+					user.day[i].search.push(newSearch);
+					user.save(function(err){
+						if (err) { console.log(err); }
+						res.send(user);
+					});
+				};
+			};
+		});
+	});
+});
 
 
 

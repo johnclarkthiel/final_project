@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 //requiring day schema
 var daySchema = require("./daySchema.js").schema;
+var searchSchema = require('./searchSchema.js').schema;
 //for bcrypt for hasing passwords
 var bcrypt = require("bcrypt-nodejs");
 

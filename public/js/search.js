@@ -119,13 +119,30 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 		});
 	};
 
-	this.save = function(result) {
-		console.log("SAVE WORKING");
-		console.log(result);
-		console.log($rootScope.user);
-		console.log($rootScope.user.day);
+	this.save = function(result, index) {
+		// console.log("SAVE WORKING");
+		// console.log('RESULT ', result);
+		// console.log($rootScope.user);
+		// console.log($rootScope.user.day);
+		// console.log('INDEX ', index);
 		this.showDays = !this.showDays;
 		this.days = $rootScope.user.day;
-	}
+
+		var userID = $rootScope.user._id;
+		var searchResult = result;
+
+		this.addToDay = function(day) {
+			console.log("ADD TO DAY WORKING");
+			console.log(day);
+			console.log(userID);
+			console.log(searchResult);
+			$http.post('/user/' + userID + '/' + day._id, { search_result : searchResult }).
+			then(function(response){
+				console.log(response);
+			}, function(err){
+				console.log(err);
+			})
+		};
+	};
 
 }]);//end search controller
