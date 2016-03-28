@@ -6,6 +6,7 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 	this.searchBooks = false;
 	this.searchArticles = false;
 	this.searchBills = false;
+	this.showDays = false;
 	//values for results from searches ... initially set to zero
 	this.results = null;
 	this.bookresults = null;
@@ -96,7 +97,7 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 			controller.articleresults = response.data.response.docs;
 			console.log("CONTROLLER RESULTS ", controller.articleresults);
 			controller.articleSearch = undefined;
-		}, function(err){
+			}, function(err){
 			console.log(err)
 		});
 	};
@@ -117,5 +118,14 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 			console.log(err)
 		});
 	};
+
+	this.save = function(result) {
+		console.log("SAVE WORKING");
+		console.log(result);
+		console.log($rootScope.user);
+		console.log($rootScope.user.day);
+		this.showDays = !this.showDays;
+		this.days = $rootScope.user.day;
+	}
 
 }]);//end search controller

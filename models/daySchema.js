@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var searchSchema = require('./searchSchema.js')
 
 var daySchema = new mongoose.Schema({
 	day: {type: Date, required: true},
@@ -6,6 +7,7 @@ var daySchema = new mongoose.Schema({
 	severity: {type: Number, required: true},
 	// book: [bookSchema],
 	// movie: [movieSchema]
+	search: [searchSchema]
 });
 
 module.exports = mongoose.model("daySchema", daySchema);

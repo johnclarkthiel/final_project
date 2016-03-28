@@ -25,3 +25,10 @@ input {
 #searchSection {
 	margin-top: 10%;
 }
+
+#addSearchToDay {
+	height: 50%;
+	width: 50%;
+/*	margin-bottom: 50%;*/
+	border: 1px solid black;
+}

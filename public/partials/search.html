@@ -49,6 +49,8 @@
 					<li>Rating: {{result.mpaa_rating}}</li>
 					<li>Review url: <a href="{{result.link.url}}">{{result.link.url}}</a></li>
 					<img src="{{result.multimedia.resource.src}}">
+				<button ng-click='searchCtrl.save(result)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center" type="submit" name="action">Save
+	  		</button>
 				</ol><br/><hr/>
 			</li>
 		</ul>
@@ -62,6 +64,8 @@
 					<li>Reviewer: {{result.byline}}</li>
 					<li>Summary: {{result.summary}}</li>
 					<li>Review url: <a href="{{result.url}}">{{result.url}}</a></li>
+				<button ng-click='searchCtrl.save(result)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center" type="submit" name="action">Save
+	  		</button>
 				</ol><br/><hr/>
 			</li>
 		</ul>
@@ -76,13 +80,19 @@
 					<li>Sub-head: {{result.lead_paragraph}}</li>
 					<li>Story url: <a href="{{result.web_url}}">{{result.web_url}}</a></li>
 					<img src="{{result.multimedia[0].url}}">
+				<button ng-click='searchCtrl.save(result)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center" type="submit" name="action">Save
+	  		</button>
 				</ol><br/><hr/>
 			</li>
 		</ul>
 	</div>
 
-		<div ng-if='searchCtrl.showBillResults'>
+	<div ng-if='searchCtrl.showBillResults'>
 		<ul>
+			<div ng-if="searchCtrl.showDays" id='addSearchToDay' ng-repeat='day in searchCtrl.days'>
+				THIS WILL DO SOMETHING
+				{{day.day}}
+			</div>
 			<li ng-repeat='result in searchCtrl.billresults'>Title: {{result.title}}<br/>
 				<ol>
 					<li>Committees: {{result.committees}}</li>
@@ -90,8 +100,11 @@
 					<li>Latest Major Action: {{result.latest_major_action}}</li>
 					<li>Latest Major Action Date: {{result.latest_major_action_date}}</li>
 					<li>Bill Number: {{result.number}}</li>
+				<button ng-click='searchCtrl.save(result)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center" type="submit" name="action">Save
+	  		</button>
 				</ol><br/><hr/>
 			</li>
 		</ul>
 	</div>
+
 </section>
