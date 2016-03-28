@@ -41,7 +41,11 @@
 <!-- Div containing movie search results -->
 	<div ng-if='searchCtrl.showResults'>
 		<ul>
-			<li ng-repeat='result in searchCtrl.results'>Movie:<br/>
+			<div ng-if="searchCtrl.showDays" id='addSearchToDay' ng-repeat='day in searchCtrl.days'>
+				Add to this day:<br/><hr/>
+				<button ng-click='searchCtrl.addToDay(day)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">{{day.day}}</button><br/><hr/>
+			</div>
+			<li ng-repeat='result in searchCtrl.results track by $index'>Movie:<br/>
 				<ol>
 					<li>Title: {{result.display_title}}</li>
 					<li>Reviewer: {{result.byline}}</li>
@@ -49,7 +53,7 @@
 					<li>Rating: {{result.mpaa_rating}}</li>
 					<li>Review url: <a href="{{result.link.url}}">{{result.link.url}}</a></li>
 					<img src="{{result.multimedia.resource.src}}">
-				<button ng-click='searchCtrl.save(result)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center" type="submit" name="action">Save
+				<button ng-click='searchCtrl.save(result, $index)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center" type="submit" name="action">Save
 	  		</button>
 				</ol><br/><hr/>
 			</li>
@@ -58,13 +62,17 @@
 	<!-- Div containing book search results -->
 	<div ng-if='searchCtrl.showBookResults'>
 		<ul>
-			<li ng-repeat='result in searchCtrl.bookresults'>Author: {{result.book_author}}<br/>
+			<div ng-if="searchCtrl.showDays" id='addSearchToDay' ng-repeat='day in searchCtrl.days'>
+				Add to this day:<br/><hr/>
+				<button ng-click='searchCtrl.addToDay(day)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">{{day.day}}</button><br/><hr/>
+			</div>
+			<li ng-repeat='result in searchCtrl.bookresults track by $index'>Author: {{result.book_author}}<br/>
 				<ol>
 					<li>Title: {{result.book_title}}</li>
 					<li>Reviewer: {{result.byline}}</li>
 					<li>Summary: {{result.summary}}</li>
 					<li>Review url: <a href="{{result.url}}">{{result.url}}</a></li>
-				<button ng-click='searchCtrl.save(result)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center" type="submit" name="action">Save
+				<button ng-click='searchCtrl.save(result, $index)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center" type="submit" name="action">Save
 	  		</button>
 				</ol><br/><hr/>
 			</li>
@@ -73,14 +81,17 @@
 
 	<div ng-if='searchCtrl.showArticleResults'>
 		<ul>
-			<li ng-repeat='result in searchCtrl.articleresults'>Headline: {{result.headline.main}}<br/>
+			<div ng-if="searchCtrl.showDays" id='addSearchToDay' ng-repeat='day in searchCtrl.days'>
+				Add to this day:<br/><hr/>
+				<button ng-click='searchCtrl.addToDay(day)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">{{day.day}}</button><br/><hr/>
+			</div>
+			<li ng-repeat='result in searchCtrl.articleresults track by $index'>Headline: {{result.headline.main}}<br/>
 				<ol>
 					<li>{{result.byline.orginal}}</li>
 					<li>Section: {{result.news_desk}}</li>
 					<li>Sub-head: {{result.lead_paragraph}}</li>
 					<li>Story url: <a href="{{result.web_url}}">{{result.web_url}}</a></li>
-					<img src="{{result.multimedia[0].url}}">
-				<button ng-click='searchCtrl.save(result)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center" type="submit" name="action">Save
+				<button ng-click='searchCtrl.save(result, $index)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center" type="submit" name="action">Save
 	  		</button>
 				</ol><br/><hr/>
 			</li>
@@ -91,7 +102,7 @@
 		<ul>
 			<div ng-if="searchCtrl.showDays" id='addSearchToDay' ng-repeat='day in searchCtrl.days'>
 				Add to this day:<br/><hr/>
-				<button ng-click='searchCtrl.addToDay(day)'>{{day.day}}</button><br/><hr/>
+				<button ng-click='searchCtrl.addToDay(day)' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">{{day.day}}</button><br/><hr/>
 			</div>
 			<li ng-repeat='result in searchCtrl.billresults track by $index'>Title: {{result.title}}<br/>
 				<ol>

@@ -28,6 +28,21 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 		})
 	};
 
+	this.days = $rootScope.user.day;
+	this.searches = [];
+	for (var i = 0; i < $rootScope.user.day.length; i++ ) {
+		console.log($rootScope.user.day[i].search);
+		//NEED ANOTHER FOR LOOP? 
+		this.searches.push($rootScope.user.day[i].search);
+	}
+
+	this.showUser = function() {
+		console.log($rootScope.user);
+	}
+
+	console.log("SEARCHES ", this.searches);
+	console.log("SEARCHES TYPEOF ", typeof this.searches);
+
 }]);//end Day controller
 
 //front end router to take logged in users to serach page once a day is added
@@ -43,7 +58,13 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 		templateUrl: 'partials/search.html',
 		controller: 'SearchController',
 		controllerAs: 'searchCtrl'
-	}).otherwise({
+	}).
+	when('/days', {
+		templateUrl: 'partials/day.html',
+		controller: 'DayController',
+		controllerAs: 'dayCtrl'
+	}).
+	otherwise({
 		redirectTo: '/'
 	});
 }]);

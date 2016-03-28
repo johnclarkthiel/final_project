@@ -1,0 +1,14 @@
+<h1>HERE'S THE DAY PAGE/INDEX PAGE ... THIS IS WHERE THE DAYS WILL GO</h1>
+<button ng-click='dayCtrl.showUser()'>HERE's A BUTTON</button>
+<div ng-repeat="day in dayCtrl.days">
+	<div>{{day.day}}</div>
+	<div>{{day.description}}</div>
+	<div>{{day.severity}}</div>
+	<!-- <div>{{day.search}}</div/> -->
+<!-- 		<div ng-repeat='search in dayCtrl.searches'>{{day.day}}
+			Search: <div ng-if='{{search.search_result.url}}'>Book search: {{search.search_result.url}}</div>
+							<div ng-if='{{search.search_result.sponsor_url}}'>Bill search: {{search.search_result.sponsor_url}}</div>
+							<div ng-if='{{search.search_result.web_url}}'>Article search: {{search.search_result.web_url}}</div>
+							<div ng-if='{{search.search_result.link.url'>Movie search:{{search.search_result.link.url}}</div>
+		</div><br/><hr/> -->
+</div>

@@ -80,8 +80,13 @@ router.post('/:id/:day_id/', function(req,res){
 		if (err) { console.log(err); }
 
 		User.findById(req.params.id, function(err, user){
-			console.log("USER >>>>> ", user)
-			console.log("USER >>>>> ", user.day)
+			console.log("USER >>>>> ", user);
+			console.log("USER >>>>> ", user.day);
+			if (user.bored_instances == null || user.bored_instances == undefined) {
+				user.bored_instances = 1;
+			} else {
+				user.bored_instances = user.bored_instances += 1;
+			}
 			for (var i = 0; i < user.day.length; i ++ ) {
 				if (user.day[i]._id == req.params.day_id) {
 					console.log(user.day[i]);

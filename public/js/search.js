@@ -6,7 +6,7 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 	this.searchBooks = false;
 	this.searchArticles = false;
 	this.searchBills = false;
-	this.showDays = false;
+	// this.showDays = false;
 	//values for results from searches ... initially set to zero
 	this.results = null;
 	this.bookresults = null;
@@ -136,6 +136,7 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 			console.log(day);
 			console.log(userID);
 			console.log(searchResult);
+			this.showDays = !this.showDays;
 			$http.post('/user/' + userID + '/' + day._id, { search_result : searchResult }).
 			then(function(response){
 				console.log(response);
