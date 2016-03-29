@@ -3,6 +3,15 @@
 	padding: 0;
 }
 
+ .auth-form input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+  }
+
+ .auth-form input.ng-valid.ng-touched {
+    background-color: #78FA89;
+ }
+
+
 li {
 	border-right: 1px solid white;
 }

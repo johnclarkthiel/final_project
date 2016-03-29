@@ -1,8 +1,10 @@
 <h1>HERE'S THE DAY PAGE/INDEX PAGE ... THIS IS WHERE THE DAYS WILL GO</h1>
 <!-- <button ng-click='dayCtrl.showUser()'>HERE's A BUTTON</button> -->
 <div ng-if='dayCtrl.showQuestionnaire' id='surveyForm'>
-	<form >
-		<h1>A FORM WILL GO HERE</h1>
+	<form action='#'>
+		<h1>Was this search helpful?</h1>
+		<input name='query1' type="radio" ng-model='dayCtrl.query1' value="true" id='yes' /><label for='yes'>Yes</label>
+		<input name='query1' type="radio" ng-model='dayCtrl.query1' value="false" id='no'/><label for='no'>No</label><br/>
 		<button ng-click='dayCtrl.cancel()' class="btn waves-effect waves-light hoverable blue-grey darken-4" >Cancel</button>
 	</form> 
 </div>

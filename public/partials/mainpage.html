@@ -4,13 +4,17 @@
 		<h2>a feeling of listlessness and dissatisfaction arising from a lack of occupation or excitement</h2>
 	</blockquote>
 		<h3>Bored? Sign up. It might help.</h3>
-		<form>
+		<form novalidate class='auth-form' name='auth-form'>
 			<h4 class='center-align'>Name</h4><br/><hr/>
-			<input type='text' ng-model='name' id='name' placeholder='Your name goes here'><br/>
+			<input type='text' ng-model='name' id='name' placeholder='Your name goes here'/><br/>
 			<h4 class='center-align'>Email</h4><br/><hr/>
-			<input type='text' ng-model='email' id='email' placeholder='Your email goes here'><br/>
+			<input type='email' ng-model='email' id='email' placeholder='Your email goes here' required/><br/>
 			<h4 class='center-align'>Password</h4><br/><hr/>
-			<input type='password' ng-model='password' id='password' placeholder='Your password goes here'><br/>
+			<input type='password' ng-model='password' name='uPassword' id='password' placeholder='Your password goes here' required=''/><br/>
+	<!-- 		<div ng-show="auth-form.$submitted || auth-form.uPassword.$touched">
+      	<div ng-show="auth-form.uPassword.$error.required">You need to enter a password!</div>
+    	</div> -->
+
 			<button ng-click='authUser()' id='signupButton'class="btn waves-effect waves-light hoverable blue-grey darken-4" type="submit" name="action">Sign up<i class="material-icons right">send</i>
   		</button>
 
