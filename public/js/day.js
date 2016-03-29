@@ -35,20 +35,27 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 		controller.days = response.data.day;
 	});
 
-	this.showSurveyForm = function() {
+	this.showSurveyForm = function(day) {
 		console.log('SURVEY FORM WORKING');
 		this.showQuestionnaire = true;
+		console.log(day)
+		///PUT SEND DATA FUNCTION IN HERE????
+		this.sendData = function() {
+			console.log(this.query1);
+			console.log(this.query2);
+			console.log(this.notes);
+		};
 	};
 
 	this.cancel = function() {
 		this.showQuestionnaire = false;
 	}
 
-	this.sendData = function() {
-		console.log(this.query1);
-		console.log(this.query2);
-		console.log(this.notes);
-	}
+	// this.sendData = function() {
+	// 	console.log(this.query1);
+	// 	console.log(this.query2);
+	// 	console.log(this.notes);
+	// }
 
 
 }]);//end Day controller

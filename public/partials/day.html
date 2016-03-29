@@ -35,7 +35,7 @@
 				<div ng-if='search.search_result.bill_uri'><b>Bill search:</b> <br/>Bill title: {{search.search_result.title}}<br/> Bill committees: {{search.search_result.committees}}<br/> Bill number: {{search.search_result.number}}<br> Bill introduction date: {{search.search_result.introduced_date}} <br> Latest major action: {{search.search_result.latest_major_action}} <br> Latest major action date: {{search.search_result.latest_major_action_date}} </div>
 				<div ng-if='search.search_result.web_url'><b>Article search:</b> <a href="{{search.search_result.web_url}}">{{search.search_result.headline.main}}</a></div>
 				<div ng-if='search.search_result.link.url'><b>Movie search</b> <a href="{{search.search_result.link.url}}">{{search.search_result.display_title}}</a></div>
-				<button ng-click='dayCtrl.showSurveyForm()' class="btn waves-effect waves-light hoverable blue-grey darken-4" type="submit" name="action">Did this search help?</button>
+				<button ng-click='dayCtrl.showSurveyForm(day)' class="btn waves-effect waves-light hoverable blue-grey darken-4" type="submit" name="action">Did this search help?</button>
 				<br/><br/>
 			</li> 
 			<hr/>
