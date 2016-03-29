@@ -47,6 +47,7 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 	this.sendData = function() {
 		console.log(this.query1);
 		console.log(this.query2);
+		console.log(this.notes);
 	}
 
 
