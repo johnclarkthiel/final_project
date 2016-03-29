@@ -27,8 +27,13 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 			console.log(err);
 		})
 	};
-
-	this.days = $rootScope.user.day;
+	//setting this to var controller to be used in callback when defining days from server & db get request
+	var controller = this;
+	//said server - db - client get request
+	this.days = $http.get('user/' + $rootScope.user._id).then(function(response){
+		console.log('THIS DAYS RESPONSE', response);
+		controller.days = response.data.day;
+	});
 
 	this.showSurveyForm = function() {
 		console.log('SURVEY FORM WORKING');
