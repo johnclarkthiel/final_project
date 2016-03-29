@@ -118,17 +118,21 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 			console.log(err)
 		});
 	};
-
+	//will save a result, first pops up the save to day menu ... when a user clicks on a day, invokes the addToDay function, which takes the day in as a param and sends the day's id and the user's id to the server to add the search to the day
 	this.save = function(result, index) {
 		// console.log("SAVE WORKING");
 		// console.log('RESULT ', result);
 		// console.log($rootScope.user);
 		// console.log($rootScope.user.day);
 		// console.log('INDEX ', index);
-		this.showDays = !this.showDays;
-		this.days = $rootScope.user.day;
 
+		//shows the add to day window 
+		this.showDays = !this.showDays;
+		//sets the days var to the user's days array
+		this.days = $rootScope.user.day;
+		//sets var equal to user's id for backend post route
 		var userID = $rootScope.user._id;
+		//probably unnecessary, but sets a new var for result param var to be sent to the server
 		var searchResult = result;
 
 		this.addToDay = function(day) {
@@ -136,16 +140,28 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 			console.log(day);
 			console.log(userID);
 			console.log(searchResult);
+
+			//hides the days window
 			this.showDays = !this.showDays;
+			//post route to server using user id and day id, adds a new search instance and embeds a copy as a subdoc in user's specific day sub doc
 			$http.post('/user/' + userID + '/' + day._id, { search_result : searchResult }).
 			then(function(response){
 				console.log(response);
-				this.showDays = !this.showDays; //<<<< Updated monday night
+				// this.showDays = !this.showDays; //<<<< Updated monday night
 			}, function(err){
 				console.log(err);
-				this.showDays = !this.showDays; //<<<< Updated monday night
+				// this.showDays = !this.showDays; //<<<< Updated monday night
 			})
 		};
 	};
+	//removes the add search to day window from the screen
+	this.cancelAdd = function() {
+		this.showDays = false;
+		this.results = null;
+		this.bookresults = null;
+		this.articleresults = null;
+		this.billresults = null;
+	};
+
 
 }]);//end search controller

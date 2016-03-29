@@ -32,3 +32,15 @@ input {
 /*	margin-bottom: 50%;*/
 	border: 1px solid black;
 }
+
+/*@media (min-width: 900px) {
+	a {
+		width: 25%;
+	}
+}
+
+@media (min-width: 600px) {
+	a {
+		width: 18%;
+	}
+}*/
