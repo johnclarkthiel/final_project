@@ -121,13 +121,38 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 	//will save a result, first pops up the save to day menu ... when a user clicks on a day, invokes the addToDay function, which takes the day in as a param and sends the day's id and the user's id to the server to add the search to the day
 	this.save = function(result, index) {
 		// console.log("SAVE WORKING");
-		// console.log('RESULT ', result);
+		console.log('RESULT ', result);
 		// console.log($rootScope.user);
 		// console.log($rootScope.user.day);
 		// console.log('INDEX ', index);
+	
+	//shows the add to day window 
+		if (result.url) {
+			this.showBookDays = true;
+		} else if (result.bill_uri) {
+			this.showBillDays = true;
+		} else if (result.web_url) {
+			this.showArticleDays = true;
+		} else if (result.link.url) {
+			this.showMovieDays = true;
+		} 
 
-		//shows the add to day window 
-		this.showDays = !this.showDays;
+			//removes the add search to day window from the screen
+		this.cancelAdd = function() {
+			if (result.url) {
+			this.showBookDays = false;
+		} else if (result.bill_uri) {
+			this.showBillDays = false;
+		} else if (result.web_url) {
+			this.showArticleDays = false;
+		} else if (result.link.url) {
+			this.showMovieDays = false;
+		} 
+			this.day = null;
+			this.days = null;
+		};
+
+		
 		//sets the days var to the user's days array
 		this.days = $rootScope.user.day;
 		//sets var equal to user's id for backend post route
@@ -142,7 +167,15 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 			console.log(searchResult);
 
 			//hides the days window
-			this.showDays = !this.showDays;
+			if (result.url) {
+			this.showBookDays = false;
+		} else if (result.bill_uri) {
+			this.showBillDays = false;
+		} else if (result.web_url) {
+			this.showArticleDays = false;
+		} else if (result.link.url) {
+			this.showMovieDays = false;
+		} 
 			//post route to server using user id and day id, adds a new search instance and embeds a copy as a subdoc in user's specific day sub doc
 			$http.post('/user/' + userID + '/' + day._id, { search_result : searchResult }).
 			then(function(response){
@@ -153,14 +186,6 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 				// this.showDays = !this.showDays; //<<<< Updated monday night
 			})
 		};
-	};
-	//removes the add search to day window from the screen
-	this.cancelAdd = function() {
-		this.showDays = false;
-		this.results = null;
-		this.bookresults = null;
-		this.articleresults = null;
-		this.billresults = null;
 	};
 
 

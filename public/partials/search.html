@@ -113,8 +113,8 @@
 				Add to this day:<br/><hr/>
 				<!-- BUTTON FOR ADDING SEARCH RESULT TO DAY -->
 				<button ng-click='searchCtrl.addToDay(day)' ng-repeat='day in searchCtrl.days' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">{{day.day}}</button><br/><hr/>
-				<!-- BUTTON FOR CANCELING SEARCH RESULT -->
-				<button ng-click='searchCtrl.cancelAdd()' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">Cancel</button>
+				<!-- BUTTON FOR CANCELING SEARCH RESUTL -->
+				<button ng-model='searchCtrl.days' ng-click='searchCtrl.cancelAdd()' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">Cancel</button>
 			</div>
 			<li ng-repeat='result in searchCtrl.billresults track by $index'>Title: {{result.title}}<br/>
 				<ol>
