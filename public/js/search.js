@@ -140,8 +140,10 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 			$http.post('/user/' + userID + '/' + day._id, { search_result : searchResult }).
 			then(function(response){
 				console.log(response);
+				this.showDays = !this.showDays; //<<<< Updated monday night
 			}, function(err){
 				console.log(err);
+				this.showDays = !this.showDays; //<<<< Updated monday night
 			})
 		};
 	};

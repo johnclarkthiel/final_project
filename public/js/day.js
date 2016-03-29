@@ -32,8 +32,13 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 	this.searches = [];
 	for (var i = 0; i < $rootScope.user.day.length; i++ ) {
 		console.log($rootScope.user.day[i].search);
+		var search = $rootScope.user.day[i].search;
 		//NEED ANOTHER FOR LOOP? 
-		this.searches.push($rootScope.user.day[i].search);
+		for (var j = 0; j < search.length; j ++ ) {
+			// this.searches.push($rootScope.user.day[i].search);
+			console.log("SEARCH ITERATION ", $rootScope.user.day[i].search[j]);
+			this.searches.push($rootScope.user.day[i].search[j])
+		}	
 	}
 
 	this.showUser = function() {

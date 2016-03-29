@@ -1,14 +1,27 @@
 <h1>HERE'S THE DAY PAGE/INDEX PAGE ... THIS IS WHERE THE DAYS WILL GO</h1>
 <button ng-click='dayCtrl.showUser()'>HERE's A BUTTON</button>
 <div ng-repeat="day in dayCtrl.days">
-	<div>{{day.day}}</div>
-	<div>{{day.description}}</div>
-	<div>{{day.severity}}</div>
-	<!-- <div>{{day.search}}</div/> -->
+	<div>Timestamp: {{day.day}}</div>
+	<div>Description of your boredom: {{day.description}}</div>
+	<div>Severity of your boredom: {{day.severity}}</div>
+	<div>Day's searches: <ul>
+												<li ng-repeat='search in day.search'>
+													<div ng-if='search.search_result.url'>Book search: <a href="{{search.search_result.url}}">{{search.search_result.book_title}}</a> </div>
+													<div ng-if='search.search_result.bill_uri'>Bill search: <br/>Bill title: {{search.search_result.title}}<br/> Bill committees: {{search.search_result.committees}}<br/> Bill number: {{search.search_result.number}}<br> Bill introduction date: {{search.search_result.introduced_date}} <br> Latest major action: {{search.search_result.latest_major_action}} <br> Latest major action date: {{search.search_result.latest_major_action_date}} </div>
+													<div ng-if='search.search_result.web_url'>Article search: <a href="{{search.search_result.web_url}}">{{search.search_result.headline.main}}</a></div>
+													<div ng-if='search.search_result.link.url'>Movie search: <a href="{{search.search_result.link.url}}">{{search.search_result.display_title}}</a></div>
+												</li> 
+											</ul>
+</div/>
+	<br/><hr/>
+</div>
+
+
 <!-- 		<div ng-repeat='search in dayCtrl.searches'>{{day.day}}
-			Search: <div ng-if='{{search.search_result.url}}'>Book search: {{search.search_result.url}}</div>
+			Search: {{search}} -->
+			<!--  <div ng-if='{{search.search_result.url}}'>Book search: {{search.search_result.url}}</div>
 							<div ng-if='{{search.search_result.sponsor_url}}'>Bill search: {{search.search_result.sponsor_url}}</div>
 							<div ng-if='{{search.search_result.web_url}}'>Article search: {{search.search_result.web_url}}</div>
-							<div ng-if='{{search.search_result.link.url'>Movie search:{{search.search_result.link.url}}</div>
-		</div><br/><hr/> -->
-</div>
+							<div ng-if='{{search.search_result.link.url'>Movie search:{{search.search_result.link.url}}</div> -->
+		<!-- </div><br/><hr/> -->
+		<!-- ALTERNATIVELY, I COULD TRY TO DO THE NG REPEAT WITH SEARCH.SEARCH.SEARCH RESULT -->
