@@ -86,6 +86,7 @@ router.post('/:id/:day_id/', function(req,res){
 				user.bored_instances = 1;
 			} else {
 				user.bored_instances = user.bored_instances += 1;
+				user.searches = user.searches += 1;
 			}
 			for (var i = 0; i < user.day.length; i ++ ) {
 				if (user.day[i]._id == req.params.day_id) {

@@ -2,10 +2,12 @@
 <!-- <button ng-click='dayCtrl.showUser()'>HERE's A BUTTON</button> -->
 <div ng-if='dayCtrl.showQuestionnaire' id='surveyForm'>
 	<form action='#'>
-		<h1>Was this search helpful?</h1>
-		<input name='query1' type="radio" ng-model='dayCtrl.query1' value="true" id='yes' /><label for='yes'>Yes</label>
-		<input name='query1' type="radio" ng-model='dayCtrl.query1' value="false" id='no'/><label for='no'>No</label><br/>
-		<button ng-click='dayCtrl.cancel()' class="btn waves-effect waves-light hoverable blue-grey darken-4" >Cancel</button>
+		<h4>Was this search helpful?</h4>
+		<input name='query1' type="radio" ng-model='dayCtrl.query1' value="yes" id='yes' /><label for='yes'>Yes</label>
+		<input name='query1' type="radio" ng-model='dayCtrl.query1' value="no" id='no'/><label for='no'>No</label><br/>
+		<a ng-click='dayCtrl.sendDaya()' class="btn waves-effect waves-light hoverable blue-grey darken-4" >Submit</a>
+		<br/>
+		<a ng-click='dayCtrl.cancel()' class="btn waves-effect waves-light hoverable blue-grey darken-4" >Cancel</a>
 	</form> 
 </div>
 
