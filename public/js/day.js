@@ -37,8 +37,13 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 
 	this.cancel = function() {
 		this.showQuestionnaire = false;
-		console.log(this.query1);
 	}
+
+	this.sendData = function() {
+		console.log(this.query1);
+		console.log(this.query2);
+	}
+
 
 }]);//end Day controller
 

@@ -1,6 +1,12 @@
 var app = angular.module('add-search', ['ngRoute']);
 
 app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope', '$routeParams', function($http,$scope,$location,$rootScope, $routeParams){
+	var controller = this;
+	this.days = $http.get('user/' + $rootScope.user._id).then(function(response){
+		console.log('THIS DAYS RESPONSE', response);
+		controller.days = response.data.day;
+	});
+
 	//values for showing movie, book, article, etc. search forms
 	this.searchMovies = false;
 	this.searchBooks = false;
@@ -154,7 +160,7 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 
 		
 		//sets the days var to the user's days array
-		this.days = $rootScope.user.day;
+		// this.days = $rootScope.user.day;
 		//sets var equal to user's id for backend post route
 		var userID = $rootScope.user._id;
 		//probably unnecessary, but sets a new var for result param var to be sent to the server
