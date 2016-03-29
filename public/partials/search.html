@@ -44,7 +44,7 @@
 			<div ng-if="searchCtrl.showMovieDays" id='addSearchToDay'>
 				Add to this day:<br/><hr/>
 				<!-- SHOWS ALL THE DAYS THAT THE SEARCH CAN BE ADDED TO -->
-				<button ng-click='searchCtrl.addToDay(day)' ng-repeat='day in searchCtrl.days' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">{{day.day}}</button><br/><hr/>
+				<button ng-click='searchCtrl.addToDay(day)' ng-repeat='day in searchCtrl.days' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">{{day.day | date:'fullDate'}}</button><br/><hr/>
 				<!-- CANCEL BUTTON -->
 				<button ng-click='searchCtrl.cancelAdd()' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">Cancel</button>
 			</div>
@@ -68,7 +68,7 @@
 			<div ng-if="searchCtrl.showBookDays" id='addSearchToDay'>
 				Add to this day:<br/><hr/>
 				<!-- DAYS FOR SEARCH RESULTS -->
-				<button ng-click='searchCtrl.addToDay(day)'  ng-repeat='day in searchCtrl.days' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">{{day.day}}</button><br/><hr/>
+				<button ng-click='searchCtrl.addToDay(day)'  ng-repeat='day in searchCtrl.days' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">{{day.day | date:'fullDate'}}</button><br/><hr/>
 				<!-- CANCEL BUTTON -->
 				<button ng-click='searchCtrl.cancelAdd()' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">Cancel</button>
 			</div>
@@ -90,7 +90,7 @@
 			<div ng-if="searchCtrl.showArticleDays" id='addSearchToDay'>
 				Add to this day:<br/><hr/>
 				<!-- DAYS FOR SEARCH RESULTS -->
-				<button ng-click='searchCtrl.addToDay(day)' ng-repeat='day in searchCtrl.days' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">{{day.day}}</button><br/><hr/>
+				<button ng-click='searchCtrl.addToDay(day)' ng-repeat='day in searchCtrl.days' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">{{day.day | date:'fullDate'}}</button><br/><hr/>
 				<!-- BUTTON FOR CANCELING SEARCH RESULTS -->
 				<button ng-click='searchCtrl.cancelAdd()' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">Cancel</button>
 			</div>
@@ -112,7 +112,7 @@
 			<div ng-if="searchCtrl.showBillDays" id='addSearchToDay'>
 				Add to this day:<br/><hr/>
 				<!-- BUTTON FOR ADDING SEARCH RESULT TO DAY -->
-				<button ng-click='searchCtrl.addToDay(day)' ng-repeat='day in searchCtrl.days' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">{{day.day}}</button><br/><hr/>
+				<button ng-click='searchCtrl.addToDay(day)' ng-repeat='day in searchCtrl.days' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">{{day.day | date:'fullDate'}}</button><br/><hr/>
 				<!-- BUTTON FOR CANCELING SEARCH RESUTL -->
 				<button ng-model='searchCtrl.days' ng-click='searchCtrl.cancelAdd()' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">Cancel</button>
 			</div>

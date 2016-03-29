@@ -137,7 +137,7 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 			this.showMovieDays = true;
 		} 
 
-			//removes the add search to day window from the screen
+		//removes the add search to day window from the screen and sets days to null
 		this.cancelAdd = function() {
 			if (result.url) {
 			this.showBookDays = false;
@@ -148,7 +148,7 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 		} else if (result.link.url) {
 			this.showMovieDays = false;
 		} 
-			this.day = null;
+			// this.day = null;
 			this.days = null;
 		};
 
@@ -168,25 +168,23 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 
 			//hides the days window
 			if (result.url) {
-			this.showBookDays = false;
+				this.showBookDays = false;
 		} else if (result.bill_uri) {
-			this.showBillDays = false;
+				this.showBillDays = false;
 		} else if (result.web_url) {
-			this.showArticleDays = false;
+				this.showArticleDays = false;
 		} else if (result.link.url) {
-			this.showMovieDays = false;
+				this.showMovieDays = false;
 		} 
 			//post route to server using user id and day id, adds a new search instance and embeds a copy as a subdoc in user's specific day sub doc
 			$http.post('/user/' + userID + '/' + day._id, { search_result : searchResult }).
 			then(function(response){
 				console.log(response);
-				// this.showDays = !this.showDays; //<<<< Updated monday night
 			}, function(err){
 				console.log(err);
-				// this.showDays = !this.showDays; //<<<< Updated monday night
-			})
+			});
 		};
-	};
+	};//end save function
 
 
 }]);//end search controller

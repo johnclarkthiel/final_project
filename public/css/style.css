@@ -33,6 +33,13 @@ input {
 	border: 1px solid black;
 }
 
+#surveyForm {
+	height: 80%;
+	width: 80%;
+	z-index: +1;
+	border: 1px solid black;
+}
+
 /*@media (min-width: 900px) {
 	a {
 		width: 25%;

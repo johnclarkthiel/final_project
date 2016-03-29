@@ -29,24 +29,16 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 	};
 
 	this.days = $rootScope.user.day;
-	this.searches = [];
-	for (var i = 0; i < $rootScope.user.day.length; i++ ) {
-		console.log($rootScope.user.day[i].search);
-		var search = $rootScope.user.day[i].search;
-		//NEED ANOTHER FOR LOOP? 
-		for (var j = 0; j < search.length; j ++ ) {
-			// this.searches.push($rootScope.user.day[i].search);
-			console.log("SEARCH ITERATION ", $rootScope.user.day[i].search[j]);
-			this.searches.push($rootScope.user.day[i].search[j])
-		}	
+
+	this.showSurveyForm = function() {
+		console.log('SURVEY FORM WORKING');
+		this.showQuestionnaire = true;
+	};
+
+	this.cancel = function() {
+		this.showQuestionnaire = false;
 	}
 
-	this.showUser = function() {
-		console.log($rootScope.user);
-	}
-
-	console.log("SEARCHES ", this.searches);
-	console.log("SEARCHES TYPEOF ", typeof this.searches);
 
 }]);//end Day controller
 
@@ -73,3 +65,22 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 		redirectTo: '/'
 	});
 }]);
+
+/////////////////////
+////OLD CODE
+////////////////////
+	// this.searches = [];
+	// for (var i = 0; i < $rootScope.user.day.length; i++ ) {
+	// 	console.log($rootScope.user.day[i].search);
+	// 	var search = $rootScope.user.day[i].search;
+	// 	//NEED ANOTHER FOR LOOP? 
+	// 	for (var j = 0; j < search.length; j ++ ) {
+	// 		// this.searches.push($rootScope.user.day[i].search);
+	// 		console.log("SEARCH ITERATION ", $rootScope.user.day[i].search[j]);
+	// 		this.searches.push($rootScope.user.day[i].search[j])
+	// 	}	
+	// }
+
+	// this.showUser = function() {
+	// 	console.log($rootScope.user);
+	// }
