@@ -126,7 +126,7 @@ router.put('/:id/:day_id/:search_id', function(req,res){
 						};
 						user.save(function(err){
 							if (err) { console.log(err); }
-							res.send("THAT WORKED!!!");
+							res.send(user);
 						});
 					};
 				};

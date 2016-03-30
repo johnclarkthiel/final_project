@@ -35,9 +35,12 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 		controller.days = response.data.day;
 	});
 
+	this.dayIndex = true;
+
 	this.showSurveyForm = function(day,search) {
 		console.log('SURVEY FORM WORKING');
 		this.showQuestionnaire = true;
+		this.dayIndex = false;
 		
 		///PUT SEND DATA FUNCTION IN HERE????
 		this.sendData = function() {
@@ -51,15 +54,27 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 			var searchID = search._id;
 			$http.put('/user/' + userID + '/' + dayID + '/' + searchID, {search_query_one: this.query1, search_query_two: this.query2, notes: this.notes}).then(function(response){
 				console.log(response);
+				controller.query1 = null;
+				controller.query2 = null;
+				controller.notes = null;
+				controller.showQuestionnaire = false;
+				controller.dayIndex = true;
+				$location.path('/metrics');
 			},
 			function(err){
 				console.log(err);
+				controller.query1 = null;
+				controller.query2 = null;
+				controller.notes = null;
+				controller.dayIndex = true;
+				controller.showQuestionnaire = false;
 			});
 		};
 	};
 
 	this.cancel = function() {
 		this.showQuestionnaire = false;
+		this.dayIndex = true;
 	}
 
 	// this.sendData = function() {

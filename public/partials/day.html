@@ -24,7 +24,7 @@
 	</form> 
 </div>
 
-<div ng-repeat="day in dayCtrl.days">
+<div ng-repeat="day in dayCtrl.days" ng-if='dayCtrl.dayIndex'>
 	<div><b>Day: {{day.day | date:'fullDate'}}</b></div>
 	<div><b>Description of your boredom on {{day.day | date:'fullDate'}}: {{day.description}}</b></div>
 	<div><b>Severity of your boredom on {{day.day | date:'fullDate'}}: {{day.severity}}</b></div>
