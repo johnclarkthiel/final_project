@@ -84,12 +84,13 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 		console.log("INDEX POS ", index)
 		$http.delete('/user/' + $rootScope.user._id + '/' + day._id + '/' + search._id).then(function(response){
 			console.log(response);
-			for (var i = 0; i < $rootScope.user.day.length; i++) {
+			console.log($scope);
+			// $location.path('/');
+			for (var i = 0; i < $scope.dayCtrl.days.length; i++) {
 				// console.log(day);
-				// console.log($rootScope.user.day[i]);
-				if ($rootScope.user.day[i]._id == day._id) {
-					// console.log($rootScope.user.day[i]);
-					$rootScope.user.day[i].search[index] = null;
+				var specDay = $scope.dayCtrl.days[i];
+				if (specDay._id == day._id) {
+					$scope.dayCtrl.days[i].search.splice(index,1)
 				};
 			};
 		},
