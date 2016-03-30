@@ -75,13 +75,29 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 	this.cancel = function() {
 		this.showQuestionnaire = false;
 		this.dayIndex = true;
-	}
+	};
 
-	// this.sendData = function() {
-	// 	console.log(this.query1);
-	// 	console.log(this.query2);
-	// 	console.log(this.notes);
-	// }
+	this.delete = function (day, search, index) {
+		console.log('DELETE BUTTON WORKING');
+		console.log("DAY ", day);
+		console.log("SEARCH ", search);
+		console.log("INDEX POS ", index)
+		$http.delete('/user/' + $rootScope.user._id + '/' + day._id + '/' + search._id).then(function(response){
+			console.log(response);
+			for (var i = 0; i < $rootScope.user.day.length; i++) {
+				if ($rootScope.user.day[i] == day._id) {
+					for (var j = 0; j < $rootScope.user.day[i].search.length; j ++ ) {
+						if ($rootScope.user.day[i].search[j]._id == search._id) {
+							$rootScope.user.day[i].search.slice(index,1);
+						};
+					};
+				};
+			};
+		},
+		function(err){
+			console.log(err);
+		})
+	};
 
 
 }]);//end Day controller
@@ -132,4 +148,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
 	// this.showUser = function() {
 	// 	console.log($rootScope.user);
+	// }
+
+		// this.sendData = function() {
+	// 	console.log(this.query1);
+	// 	console.log(this.query2);
+	// 	console.log(this.notes);
 	// }
