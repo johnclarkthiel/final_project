@@ -86,9 +86,11 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 			console.log(response);
 			for (var i = 0; i < $rootScope.user.day.length; i++) {
 				if ($rootScope.user.day[i] == day._id) {
+					console.log($rootScope.user.day[i]);
 					for (var j = 0; j < $rootScope.user.day[i].search.length; j ++ ) {
 						if ($rootScope.user.day[i].search[j]._id == search._id) {
-							$rootScope.user.day[i].search.slice(index,1);
+							console.log($rootScope.user.day[i].search[j]);
+							$rootScope.user.day[i].search.splice(index,1);
 						};
 					};
 				};

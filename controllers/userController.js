@@ -143,7 +143,7 @@ router.delete('/:id/:day_id/:search_id', function(req,res){
 				console.log(user.day[i]);
 				for (var j = 0; j < user.day[i].search.length; j++) {
 					if (user.day[i].search[j]._id == req.params.search_id) {
-						user.day[i].search.slice(j,1);
+						user.day[i].search.splice(j,1);
 						user.save(function(err){
 							if (err) { console.log(err); }
 							res.send(user);
