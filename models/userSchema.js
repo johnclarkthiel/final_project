@@ -11,6 +11,8 @@ var userSchema = new mongoose.Schema({
 	password: {type: String, required: true},
 	bored_instances: Number,
 	searches: {type: Number, default: 0},
+	efficacy: {type: Number, default: 0},
+	ratings: {type: Array},
 	day: [daySchema]
 });
 //brcypt method for hashing pw

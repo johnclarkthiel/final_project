@@ -35,15 +35,26 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 		controller.days = response.data.day;
 	});
 
-	this.showSurveyForm = function(day) {
+	this.showSurveyForm = function(day,search) {
 		console.log('SURVEY FORM WORKING');
 		this.showQuestionnaire = true;
-		console.log(day)
+		
 		///PUT SEND DATA FUNCTION IN HERE????
 		this.sendData = function() {
 			console.log(this.query1);
 			console.log(this.query2);
 			console.log(this.notes);
+			console.log(day);
+			console.log(search);
+			var userID = $rootScope.user._id;
+			var dayID = day._id;
+			var searchID = search._id;
+			$http.put('/user/' + userID + '/' + dayID + '/' + searchID, {search_query_one: this.query1, search_query_two: this.query2, notes: this.notes}).then(function(response){
+				console.log(response);
+			},
+			function(err){
+				console.log(err);
+			});
 		};
 	};
 

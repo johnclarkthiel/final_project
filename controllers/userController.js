@@ -104,7 +104,36 @@ router.post('/:id/:day_id/', function(req,res){
 	});
 });
 
-
+//PUT ROUTE FOR UPDATING SEARCHES
+router.put('/:id/:day_id/:search_id', function(req,res){
+	console.log("SEARCH QUERY ONE ",req.body.search_query_one);
+	console.log("SEARCH QUERY TWO ",req.body.search_query_two);
+	console.log("NOTES ",req.body.notes);
+	User.findById(req.params.id, function(err, user){
+		if (err) { console.log(err); }
+		for (var i = 0; i < user.day.length; i ++) {
+			if (user.day[i]._id == req.params.day_id) {
+				console.log(user.day[i]);
+				for (var j = 0; j < user.day[i].search.length; j++) {
+					if (user.day[i].search[j]._id == req.params.search_id) {
+						console.log("PUT ROUTE SEARCH >>>>>>", user.day[i].search[j]);
+						user.ratings.push(req.body.search_query_two);
+						user.day[i].search[j].search_query_two.push(parseInt(req.body.search_query_two));
+						user.day[i].search[j].notes = req.body.notes;
+						if (req.body.search_query_one == 'yes') {
+							user.efficacy += 1;
+							user.day[i].search[j].efficacy += 1;
+						};
+						user.save(function(err){
+							if (err) { console.log(err); }
+							res.send("THAT WORKED!!!");
+						});
+					};
+				};
+			};
+		};
+	});
+});
 
 
 
