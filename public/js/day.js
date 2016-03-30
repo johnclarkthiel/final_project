@@ -105,6 +105,11 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 		controller: 'DayController',
 		controllerAs: 'dayCtrl'
 	}).
+	when('/metrics', {
+	templateUrl: 'partials/metrics.html',
+	controller: 'MetricsController',
+	controllerAs: 'metCtrl'
+	}).
 	otherwise({
 		redirectTo: '/'
 	});

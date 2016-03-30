@@ -48,7 +48,7 @@
 				<!-- CANCEL BUTTON -->
 				<button ng-click='searchCtrl.cancelAdd()' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">Cancel</button>
 			</div>
-			<li ng-repeat='result in searchCtrl.results track by $index'>Movie:<br/>
+			<li ng-repeat='result in searchCtrl.results track by $index' ng-if='searchCtrl.showMyResults'>Movie:<br/>
 				<ol>
 					<li>Title: {{result.display_title}}</li>
 					<li>Reviewer: {{result.byline}}</li>
@@ -72,7 +72,7 @@
 				<!-- CANCEL BUTTON -->
 				<button ng-click='searchCtrl.cancelAdd()' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">Cancel</button>
 			</div>
-			<li ng-repeat='result in searchCtrl.bookresults track by $index'>Author: {{result.book_author}}<br/>
+			<li ng-repeat='result in searchCtrl.bookresults track by $index' ng-if='searchCtrl.showMyResults'>Author: {{result.book_author}}<br/>
 				<ol>
 					<li>Title: {{result.book_title}}</li>
 					<li>Reviewer: {{result.byline}}</li>
@@ -94,7 +94,7 @@
 				<!-- BUTTON FOR CANCELING SEARCH RESULTS -->
 				<button ng-click='searchCtrl.cancelAdd()' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">Cancel</button>
 			</div>
-			<li ng-repeat='result in searchCtrl.articleresults track by $index'>Headline: {{result.headline.main}}<br/>
+			<li ng-repeat='result in searchCtrl.articleresults track by $index' ng-if='searchCtrl.showMyResults'>Headline: {{result.headline.main}}<br/>
 				<ol>
 					<li>{{result.byline.orginal}}</li>
 					<li>Section: {{result.news_desk}}</li>
@@ -116,7 +116,7 @@
 				<!-- BUTTON FOR CANCELING SEARCH RESUTL -->
 				<button ng-model='searchCtrl.days' ng-click='searchCtrl.cancelAdd()' class="btn waves-effect waves-light hoverable blue-grey darken-4 center">Cancel</button>
 			</div>
-			<li ng-repeat='result in searchCtrl.billresults track by $index'>Title: {{result.title}}<br/>
+			<li ng-repeat='result in searchCtrl.billresults track by $index' ng-if='searchCtrl.showMyResults'>Title: {{result.title}}<br/>
 				<ol>
 					<li>Committees: {{result.committees}}</li>
 					<li>Introduced: {{result.introduced_date}}</li>

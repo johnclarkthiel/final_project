@@ -1,6 +1,5 @@
-<h1>HERE'S THE DAY PAGE/INDEX PAGE ... THIS IS WHERE THE DAYS WILL GO</h1>
-<!-- <button ng-click='dayCtrl.showUser()'>HERE's A BUTTON</button> -->
 <div ng-if='dayCtrl.showQuestionnaire' id='surveyForm'>
+	<h1>Boredom survey</h1>
 	<form action='#'>
 		<h4>Was this search helpful?</h4>
 		<input name='query1' type="radio" ng-model='dayCtrl.query1' value="yes" id='yes' /><label for='yes'>Yes</label>
@@ -25,6 +24,7 @@
 </div>
 
 <div ng-repeat="day in dayCtrl.days" ng-if='dayCtrl.dayIndex'>
+	<h1>Here's a log of your boredom</h1>
 	<div><b>Day: {{day.day | date:'fullDate'}}</b></div>
 	<div><b>Description of your boredom on {{day.day | date:'fullDate'}}: {{day.description}}</b></div>
 	<div><b>Severity of your boredom on {{day.day | date:'fullDate'}}: {{day.severity}}</b></div>

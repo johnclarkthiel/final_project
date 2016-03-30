@@ -12,6 +12,7 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 	this.searchBooks = false;
 	this.searchArticles = false;
 	this.searchBills = false;
+	this.showMyResults = true;
 	// this.showDays = false;
 	//values for results from searches ... initially set to zero
 	this.results = null;
@@ -131,7 +132,7 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 		// console.log($rootScope.user);
 		// console.log($rootScope.user.day);
 		// console.log('INDEX ', index);
-	
+		this.showMyResults = false;
 	//shows the add to day window 
 		if (result.url) {
 			this.showBookDays = true;
@@ -154,8 +155,7 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 		} else if (result.link.url) {
 			this.showMovieDays = false;
 		} 
-			// this.day = null;
-			this.days = null;
+			this.showMyResults = true;
 		};
 
 		
@@ -167,11 +167,11 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 		var searchResult = result;
 
 		this.addToDay = function(day) {
-			console.log("ADD TO DAY WORKING");
-			console.log(day);
-			console.log(userID);
-			console.log(searchResult);
-
+			// console.log("ADD TO DAY WORKING");
+			// console.log(day);
+			// console.log(userID);
+			// console.log(searchResult);
+			this.showMyResults = true;
 			//hides the days window
 			if (result.url) {
 				this.showBookDays = false;
