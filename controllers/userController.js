@@ -155,6 +155,21 @@ router.delete('/:id/:day_id/:search_id', function(req,res){
 	});
 });
 
+//DELETE ROUTE FOR DELETING DAYS
+router.delete('/:id/:day_id', function(req,res){
+	User.findById(req.params.id, function(err, user){
+		for (var i = 0; i < user.day.length; i++) {
+			if (user.day[i]._id == req.params.day_id) {
+				user.day.splice(i,1);
+				user.save(function(err){
+					if (err) { console.log(err); }
+					res.send(user);
+				});
+			};
+		};
+	});
+});
+
 
 
 

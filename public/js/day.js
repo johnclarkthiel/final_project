@@ -99,6 +99,16 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 		})
 	};
 
+	this.deleteDay = function(index, day) {
+		console.log("DELETE DAY WORKING");
+		console.log(index);
+		console.log(day);
+		console.log($scope);
+		$http.delete('/user/' + $rootScope.user._id + '/' + day._id ).then(function(response){
+			$scope.dayCtrl.days.splice(index,1);
+		});
+	};
+
 
 }]);//end Day controller
 

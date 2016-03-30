@@ -24,11 +24,10 @@
 </div>
 
 <div ng-repeat="day in dayCtrl.days" ng-if='dayCtrl.dayIndex'>
-	<h1>Daily Boredom</h1>
-	<div><b>Day: {{day.day | date:'fullDate'}}</b></div>
-	<div><b>Description of your boredom on {{day.day | date:'fullDate'}}: {{day.description}}</b></div>
-	<div><b>Severity of your boredom on {{day.day | date:'fullDate'}}: {{day.severity}}</b></div>
-	<div>{{day.day | date:'fullDate'}}'s searches:
+	<div><h2><b>Day: {{day.day | date:'fullDate'}}</b></h2></div>
+	<div><h3><b>Description of your boredom on {{day.day | date:'shortDate'}}:</b> {{day.description}}</h3></div>
+	<div><h3><b>Severity of your boredom on {{day.day | date:'shortDate'}}:</b> {{day.severity}}</h3></div>
+	<div><h4>Your searches on {{day.day | date:'shortDate'}}:</h4>
 		<ul>
 			<li ng-repeat='search in day.search track by $index'>
 				<div ng-if='search.search_result.url'><b>Book search:</b> <a href="{{search.search_result.url}}">{{search.search_result.book_title}}</a> </div>
@@ -43,5 +42,6 @@
 			<hr/>
 		</ul>
 	</div/>
+	<a ng-click='dayCtrl.deleteDay($index, day)' class="btn waves-effect waves-light hoverable blue-grey darken-4">Delete this entry for {{day.day | date:'fullDate'}}</a>
 </div>
 
