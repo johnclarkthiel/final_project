@@ -2,13 +2,12 @@
 <h2>Ratings: {{metCtrl.ratings}}</h2>
 <h2>Avg Search Ratings: {{metCtrl.avg}}</h2>
 <h2>Search Effectiveness (in relieving boredom): Effective {{metCtrl.efficacy | number }}% of the time</h2>
-<h2>Number of Searches: {{metCtrl.searches}}</h2>
-<h2>Number of Times Bored: {{metCtrl.boredInstances}}</h2>
-Number of Times bored per day
-Number of searches per day
-Number of searches per times bored
-Median bored times
+<h2>Total Number of Searches: {{metCtrl.searches}}</h2>
+<h2>Total Number of Times Bored: {{metCtrl.boredInstances}}</h2>
+<h2>Number of Times bored per day: {{metCtrl.boredPerDay}}</h2>
+<h2>Number of searches per day: {{metCtrl.searchesPerDay}}</h2>
+<h2>Number of searches as a percentage of times bored: {{metCtrl.searchesPerBored | number }}%*</h2>
 Median Search Ratings
 Standard Deviation of search ratings
 <!-- FIND SOME WAY TO USE WORDS MOST COMMONLY USED TO DESCRIBE BOREDOM ON BOTH INITIAL BOREDOM AND SURVEY? -->
-
+*i.e., percent of time you searched stuff to relieve boredom

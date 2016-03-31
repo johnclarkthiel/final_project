@@ -15,10 +15,10 @@ app.controller('MetricsController', ['$http', '$scope', '$location', '$rootScope
 	}
 
 	this.avg = (this.count / this.nums.length);
-	// this.total = this.nums.map(function(num, sum){
-	// 	console.log(num);
-	// 	console.log(sum);
-	// });
+
+	this.boredPerDay = (this.boredInstances / $rootScope.user.day.length);
+	this.searchesPerDay = (this.searches / $rootScope.user.day.length);
+	this.searchesPerBored = (this.searches / this.boredInstances) * 100;
 
 
 }]);//end metrics controller
