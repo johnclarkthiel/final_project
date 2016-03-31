@@ -42,18 +42,18 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 		this.showQuestionnaire = true;
 		this.dayIndex = false;
 		
-		///PUT SEND DATA FUNCTION IN HERE????
+		///Updates a speciific 
 		this.sendData = function() {
-			console.log(this.query1);
-			console.log(this.query2);
-			console.log(this.notes);
-			console.log(day);
-			console.log(search);
+			// console.log(this.query1);
+			// console.log(this.query2);
+			// console.log(this.notes);
+			// console.log(day);
+			// console.log(search);
 			var userID = $rootScope.user._id;
 			var dayID = day._id;
 			var searchID = search._id;
 			$http.put('/user/' + userID + '/' + dayID + '/' + searchID, {search_query_one: this.query1, search_query_two: this.query2, notes: this.notes}).then(function(response){
-				console.log(response);
+				// console.log(response);
 				controller.query1 = null;
 				controller.query2 = null;
 				controller.notes = null;
@@ -71,17 +71,17 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 			});
 		};
 	};
-
+	//cancels the survey/put patch
 	this.cancel = function() {
 		this.showQuestionnaire = false;
 		this.dayIndex = true;
 	};
-
+	//delets a specific search
 	this.delete = function (day, search, index) {
-		console.log('DELETE BUTTON WORKING');
-		console.log("DAY ", day);
-		console.log("SEARCH ", search);
-		console.log("INDEX POS ", index)
+		// console.log('DELETE BUTTON WORKING');
+		// console.log("DAY ", day);
+		// console.log("SEARCH ", search);
+		// console.log("INDEX POS ", index)
 		$http.delete('/user/' + $rootScope.user._id + '/' + day._id + '/' + search._id).then(function(response){
 			console.log(response);
 			console.log($scope);
@@ -96,14 +96,14 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 		},
 		function(err){
 			console.log(err);
-		})
+		});
 	};
-
+	//deletes a specific day
 	this.deleteDay = function(index, day) {
-		console.log("DELETE DAY WORKING");
-		console.log(index);
-		console.log(day);
-		console.log($scope);
+		// console.log("DELETE DAY WORKING");
+		// console.log(index);
+		// console.log(day);
+		// console.log($scope);
 		$http.delete('/user/' + $rootScope.user._id + '/' + day._id ).then(function(response){
 			$scope.dayCtrl.days.splice(index,1);
 		});
