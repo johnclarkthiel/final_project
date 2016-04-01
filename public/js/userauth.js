@@ -2,6 +2,16 @@ var app = angular.module('user-auth', ['ngRoute']);
 //using http for ajax requests to the server, $scope to access elements on the page, $rootScope to make objects globally accessible and location to change partials to render new page views, using route params to get params in url
 app.controller('AuthController', ['$http', '$scope', '$location', '$rootScope', '$routeParams', function($http, $scope, $location, $rootScope, $routeParams) {
 	// $rootScope.user = null;
+
+	$http.get('/checkuser').then(function(response){
+		console.log("CHECK USER RESPONSE", response);
+		$http.get('/user/' + response.data).then(function(response){
+				console.log("SECOND GET RESPONSE", response);
+				$rootScope.user = response.data;
+			});
+	});
+
+
 	var controller = this;
 	this.password = null;
 	this.id = $routeParams.id

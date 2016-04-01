@@ -11,7 +11,7 @@ var Day = require('../models/daySchema.js');
 var Search = require('../models/searchSchema.js');
 //Test if working
 router.get('/', function(req,res){
-	res.send('USER CONTROLLER WORKS')
+		res.send("WORKING");
 });
 //LOGOUT
 router.get('/:id/logout', function(req,res){
@@ -33,8 +33,21 @@ router.post('/signup', passport.authenticate('local-signup', {
 router.get('/:id', function(req,res){
 	User.findById(req.params.id, function(err,user){
 		if (err) { console.log("ERROR: ", err) }
-		res.send(user);
+		if (req.isAuthenticated()) {
+			res.send(user);
+		}
 	});
+});
+
+//check session
+router.get('/checkuser', function(req,res){
+	if (req.isAuthenticated) {
+		console.log("THIS CHECKUSER THING WAS HIT");
+	} else {
+		console.log("USER NOT AUTH ... CHECKUSER HIT")
+	}
+	
+	// res.send(req.session);
 });
 
 //login
@@ -170,6 +183,18 @@ router.delete('/:id/:day_id', function(req,res){
 	});
 });
 
+//logged in check
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on 
+    if (req.isAuthenticated()) {
+    		console.log("AUTHORIZED");
+        return next();
+     }
+    // if they aren't redirect them to the home page
+   	console.log("NOT AUTHORIZED");
+    res.redirect('/');
+};
 
 
 
