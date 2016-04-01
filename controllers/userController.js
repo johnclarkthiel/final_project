@@ -39,16 +39,6 @@ router.get('/:id', function(req,res){
 	});
 });
 
-//check session
-router.get('/checkuser', function(req,res){
-	if (req.isAuthenticated) {
-		console.log("THIS CHECKUSER THING WAS HIT");
-	} else {
-		console.log("USER NOT AUTH ... CHECKUSER HIT")
-	}
-	
-	// res.send(req.session);
-});
 
 //login
 router.post('/login', passport.authenticate('local-login', {

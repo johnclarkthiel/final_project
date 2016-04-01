@@ -58,6 +58,18 @@ app.get('/checkuser', function(req,res){
 	// res.send(req.session);
 });
 
+app.get('/search', function(req,res){
+	res.redirect('/');
+});
+
+app.get('/metrics', function(req,res){
+	res.redirect('/');
+});
+
+app.get('/days', function(req,res){
+	res.redirect('/');
+});
+
 //controllers
 var userController = require('./controllers/userController.js');
 app.use('/user', userController);

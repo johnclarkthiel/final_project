@@ -4,9 +4,9 @@ app.controller('AuthController', ['$http', '$scope', '$location', '$rootScope', 
 	// $rootScope.user = null;
 
 	$http.get('/checkuser').then(function(response){
-		console.log("CHECK USER RESPONSE", response);
+		// console.log("CHECK USER RESPONSE", response);
 		$http.get('/user/' + response.data).then(function(response){
-				console.log("SECOND GET RESPONSE", response);
+				// console.log("SECOND GET RESPONSE", response);
 				$rootScope.user = response.data;
 			});
 	});

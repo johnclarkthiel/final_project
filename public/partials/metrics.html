@@ -1,5 +1,4 @@
 <h1 ng-controller='MetricsController as metCtrl'>Your Boredom Metrics</h1>
-<h4>Ratings: {{metCtrl.ratings}}</h4>
 <h4>Avg Search Ratings: {{metCtrl.avg}}</h4>
 <h4>Search Effectiveness (in relieving boredom): Effective {{metCtrl.efficacy | number }}% of the time</h4>
 <h4>Total Number of Searches: {{metCtrl.searches}}</h4>
@@ -7,8 +6,11 @@
 <h4>Number of Times bored per day: {{metCtrl.boredPerDay}}</h4>
 <h4>Number of searches per day: {{metCtrl.searchesPerDay}}</h4>
 <h4>Number of searches as a percentage of times bored: {{metCtrl.searchesPerBored | number }}%*</h4>
-Average boredom severity
-Median Search Ratings
+<h4>Average boredom severity: {{metCtrl.sevAvg}}</h4>
+<h4>Median Search Ratings: {{metCtrl.median}}</h4>
+<h4>Ratings: </h4>
+<h4 ng-repeat='rating in metCtrl.ratings track by $index'>{{rating}}</h4>
+
 Standard Deviation of search ratings
 <!-- FIND SOME WAY TO USE WORDS MOST COMMONLY USED TO DESCRIBE BOREDOM ON BOTH INITIAL BOREDOM AND SURVEY? -->
 *i.e., percent of time you searched stuff to relieve boredom
