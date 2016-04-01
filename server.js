@@ -7,7 +7,8 @@ var morgan = require('morgan');
 var passport = require('passport');
 var passportLocal = require('passport-local');
 var session = require('express-session');
-
+//cookie parser
+var cookieParser = require('cookie-parser');
 //setting up port/DB, requiring mongoose
 var port = process.env.PORT || 3000;
 var mongoose = require('mongoose');
@@ -21,20 +22,28 @@ app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+//use cookieparser
+app.use(cookieParser());
 
 //passport middleware
-var passport = require('passport');
+// var passport = require('passport');
 
-var session = require('express-session');
+// var session = require('express-session');
 
 app.use(session({name: 'final_project_auth_app', secret: 'final'}));
 app.use(passport.initialize());
 app.use(passport.session());
+//remember me
+app.use(passport.authenticate('remember-me'));
 
 //check to see if root page works
-app.get('/', function(req,res){
-	res.send('WORKING ROOT PAGE');
-})
+// app.get('/', function(req,res){
+// 	res.send('WORKING ROOT PAGE');
+// })
+
+// app.get('/cookies', function(req, res) {
+//   console.log("Cookies: ", req.cookies)
+// })
 
 //controllers
 var userController = require('./controllers/userController.js');

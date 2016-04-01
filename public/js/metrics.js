@@ -20,5 +20,8 @@ app.controller('MetricsController', ['$http', '$scope', '$location', '$rootScope
 	this.searchesPerDay = (this.searches / $rootScope.user.day.length);
 	this.searchesPerBored = (this.searches / this.boredInstances) * 100;
 
+	if (this.nums.length % 2 == 0) {
+		// this.median
+	}
 
 }]);//end metrics controller

@@ -80,5 +80,26 @@ module.exports = function(passport) {
 
 	)); // end passport local login
 
+	//====================
+	//PERSISTENT LOG IN
+	//===================
+// 	passport.use(new RememberMeStrategy(
+//   function(token, done) {
+//     Token.consume(token, function (err, user) {
+//       if (err) { return done(err); }
+//       if (!user) { return done(null, false); }
+//       return done(null, user);
+//     });
+//   },
+//   function(user, done) {
+//     var token = utils.generateToken(64);
+//     Token.save(token, { userId: user.id }, function(err) {
+//       if (err) { return done(err); }
+//       return done(null, token);
+//     });
+//   }
+// ));
+
+
 
 } // end module
