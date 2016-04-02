@@ -8,9 +8,10 @@
 <h4>Number of searches as a percentage of times bored: {{metCtrl.searchesPerBored | number }}%*</h4>
 <h4>Average boredom severity: {{metCtrl.sevAvg}}</h4>
 <h4>Median Search Ratings: {{metCtrl.median}}</h4>
+<h4>Standard Deviation of search ratings: {{metCtrl.standardDeviation | number}}</h4>
 <h4>Ratings: </h4>
 <h4 ng-repeat='rating in metCtrl.ratings track by $index'>{{rating}}</h4>
 
-Standard Deviation of search ratings
+
 <!-- FIND SOME WAY TO USE WORDS MOST COMMONLY USED TO DESCRIBE BOREDOM ON BOTH INITIAL BOREDOM AND SURVEY? -->
 *i.e., percent of time you searched stuff to relieve boredom
