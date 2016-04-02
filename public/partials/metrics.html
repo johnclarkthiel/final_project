@@ -1,4 +1,56 @@
-<h1 ng-controller='MetricsController as metCtrl'>Your Boredom Metrics</h1>
+<div  ng-controller='MetricsController as metCtrl'>
+<table class='striped highlight centered responsive-table'>
+	<thead>
+		<th data-field='type'>Metric</th>
+		<th data-field='metric'>Number</th>
+	</thead>
+
+	<tbody>
+		<tr>
+			<td>Avg Search Ratings</td>
+			<td>{{metCtrl.avg}}</td>
+		</tr>
+		<tr>
+			<td>Search Effectiveness (in relieving boredom)</td>
+			<td>Effective {{metCtrl.efficacy | number }}% of the time</td>
+		</tr>
+		<tr>
+			<td>Total Number of Searches</td>
+			<td>{{metCtrl.searches}}</td>
+		</tr>
+		<tr>
+			<td>Total Number of Times Bored</td>
+			<td>{{metCtrl.boredInstances}}</td>
+		</tr>
+		<tr>
+			<td>Number of Times bored per day</td>
+			<td>{{metCtrl.boredPerDay}}</td>
+		</tr>
+		<tr>
+			<td>Number of searches per day</td>
+			<td>{{metCtrl.searchesPerDay}}</td>
+		</tr>
+		<tr>
+			<td>Number of searches as a percentage of times bored</td>
+			<td>{{metCtrl.searchesPerBored | number }}%*</td>
+		</tr>
+		<tr>
+			<td>Average boredom severity</td>
+			<td> {{metCtrl.sevAvg}}</td>
+		</tr>
+		<tr>
+			<td>Median Search Ratings</td>
+			<td>{{metCtrl.median}}</td>
+		</tr>
+		<tr>
+			<td>Standard Deviation of search ratings</td>
+			<td>{{metCtrl.standardDeviation | number}}</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<!-- <h1 ng-controller='MetricsController as metCtrl'>Your Boredom Metrics</h1>
 <h4>Avg Search Ratings: {{metCtrl.avg}}</h4>
 <h4>Search Effectiveness (in relieving boredom): Effective {{metCtrl.efficacy | number }}% of the time</h4>
 <h4>Total Number of Searches: {{metCtrl.searches}}</h4>
@@ -10,7 +62,7 @@
 <h4>Median Search Ratings: {{metCtrl.median}}</h4>
 <h4>Standard Deviation of search ratings: {{metCtrl.standardDeviation | number}}</h4>
 <h4>Ratings: </h4>
-<h4 ng-repeat='rating in metCtrl.ratings track by $index'>{{rating}}</h4>
+<h4 ng-repeat='rating in metCtrl.ratings track by $index'>{{rating}}</h4> -->
 
 
 <!-- FIND SOME WAY TO USE WORDS MOST COMMONLY USED TO DESCRIBE BOREDOM ON BOTH INITIAL BOREDOM AND SURVEY? -->
