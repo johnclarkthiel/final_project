@@ -108,9 +108,12 @@ input {
 		margin-left: 0;
 	}
 
-	*, #boredButtonTxt, li, ol, ul, button {
-		font-size: 10px;
+	*, #boredButtonTxt, li, ol, ul, button, h1,h2,h3,h4 {
 		border: none;
+	}
+
+	#boredButtonTxt {
+		font-size: 10px;
 	}
 
 	#nav-li {
