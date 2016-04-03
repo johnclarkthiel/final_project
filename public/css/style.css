@@ -115,6 +115,8 @@ input {
 
 	nav, li {
 		font-size: 5px;
+		display: block;
+		float: left;
 	}
 
 	a {
