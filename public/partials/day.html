@@ -23,13 +23,27 @@
 	</form> 
 </div>
 
+<!-- <form ng-if='dayCtrl.dayIndex' class='center-align'>
+	<input ng-model='searchStuff' placeholder='search for anything'> 
+</form> -->
+
+<div class="nav-wrapper">
+  <form ng-if='dayCtrl.dayIndex' class='center-align'>
+    <div class="input-field">
+      <input id="search" type="search" required ng-model='searchStuff' placeholder='search for anything'>
+      <label for="search"><i class="material-icons">search</i></label>
+      <i class="material-icons">close</i>
+    </div>
+  </form>
+</div>
+
 <div ng-repeat="day in dayCtrl.days" ng-if='dayCtrl.dayIndex'>
 	<div><h2><b>Day: {{day.day | date:'fullDate'}}</b></h2></div>
 	<div><h3><b>Description of your boredom on {{day.day | date:'shortDate'}}:</b> {{day.description}}</h3></div>
 	<div><h3><b>Severity of your boredom on {{day.day | date:'shortDate'}}:</b> {{day.severity}}</h3></div>
 	<div><h4>Your searches on {{day.day | date:'shortDate'}}:</h4>
 		<ul>
-			<li ng-repeat='search in day.search track by $index'>
+			<li ng-repeat='search in day.search | filter:searchStuff'>
 				<div ng-if='search.search_result.url'><b>Book search:</b> <a href="{{search.search_result.url}}">{{search.search_result.book_title}}</a> </div>
 				<div ng-if='search.search_result.bill_uri'><b>Bill search:</b> <br/>Bill title: {{search.search_result.title}}<br/> Bill committees: {{search.search_result.committees}}<br/> Bill number: {{search.search_result.number}}<br> Bill introduction date: {{search.search_result.introduced_date}} <br> Latest major action: {{search.search_result.latest_major_action}} <br> Latest major action date: {{search.search_result.latest_major_action_date}} </div>
 				<div ng-if='search.search_result.web_url'><b>Article search:</b> <a href="{{search.search_result.web_url}}">{{search.search_result.headline.main}}</a></div>

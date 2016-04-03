@@ -32,10 +32,15 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 	};
 	//setting this to var controller to be used in callback when defining days from server & db get request
 	var controller = this;
+	this.days = [];
 	//said server - db - client get request
-	this.days = $http.get('user/' + $rootScope.user._id).then(function(response){
+	$http.get('user/' + $rootScope.user._id).then(function(response){
 		console.log('THIS DAYS RESPONSE', response);
-		controller.days = response.data.day;
+		// controller.days = response.data.day;
+		console.log("DAYS ", typeof controller.days);
+		for (var i = 0; i < response.data.day.length; i++){
+			controller.days.push(response.data.day[i]);
+		}
 	});
 
 	this.dayIndex = true;
