@@ -56,12 +56,14 @@ input {
 	float: left;
 	width: 48%;
 	height: 10%;
+	margin-top: 2%;
+	margin-left: 1%;
 }
 
-#movie-search {
+/*#movie-search {
 	margin-left: 1.3%;
 }
-
+*/
 .day-wrapper {
 	height: 75%;
 	width: 95%;
