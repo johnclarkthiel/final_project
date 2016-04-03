@@ -1,8 +1,11 @@
 var app = angular.module('add-day', ['ngRoute']);
 
-app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '$routeParams', function($http,$scope,$location,$rootScope, $routeParams){
+app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '$routeParams', '$filter', function($http,$scope,$location,$rootScope, $routeParams, $filter){
 	this.showBored = true;
 	this.showBoredForm = false;	
+
+	// this.date = new Date();
+	// this.currentDate = (this.date.toISOString(), "yyyy-MM-dd");
 
 	this.boredForm = function() {
 		this.showBored = !this.showBored;
