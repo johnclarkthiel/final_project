@@ -13,8 +13,9 @@ var Search = require('../models/searchSchema.js');
 //LOGOUT
 router.get('/:id/logout', function(req,res){
 	console.log("LOGGED OUT");
+	req.session.destroy();
 	req.logout();
-	res.send('USER LOGGED OUT ',req.user);
+	res.redirect('/');
 });
 
 //get user
