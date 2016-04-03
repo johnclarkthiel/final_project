@@ -17,7 +17,7 @@ li {
 }
 
 #boredButton, #boredFormButton {
-	margin-top: 15%;
+	margin-top: 10%;
 	height: 8%;
 	width: 50%;
 	margin-left: 25%;
@@ -44,7 +44,7 @@ input {
 }
 
 #surveyForm {
-	height: 80%;
+	height: 100%;
 	width: 80%;
 	z-index: +1;
 	border: 1px solid black;
@@ -106,5 +106,13 @@ input {
 
 	body, h1,h2,h3,h4, blockquote {
 		font-size: 50%;
+	}
+
+	a {
+		width: 100%;
+		display: block;
+		float: left;
+		clear: both;
+		height: 10%;
 	}
 }
