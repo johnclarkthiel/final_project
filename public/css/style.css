@@ -113,11 +113,11 @@ input {
 		border: none;
 	}
 
-	nav, li {
+	#nav-li {
 		font-size: 5px;
 		width: 18%;
-		display: block;
-		float: left;
+	/*	display: block;
+		float: left;*/
 	}
 
 	a {

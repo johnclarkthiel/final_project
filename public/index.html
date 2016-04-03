@@ -38,11 +38,11 @@
 	<header ng-if='user'>
 		<nav class="nav-bar blue-grey darken-4">
 			<ul>
-				<li><a href="/" class='hoverable'>Home</a>
-				<li ng-if='user' class='hoverable'><a href="/search"><i class="material-icons left">search</i>Search</a>
-				<li ng-if='user' class='hoverable'><a href="/days">Days</a>
-				<li ng-if='user' class='hoverable'><a href="/metrics">Metrics</a>
-				<li ng-if='user' class='right hoverable'><a href="/" ng-click='logOut()'>Logout</a></li>
+				<li id='nav-li'><a href="/" class='hoverable'>Home</a>
+				<li id='nav-li' ng-if='user' class='hoverable'><a href="/search"><i class="material-icons left">search</i>Search</a>
+				<li id='nav-li' ng-if='user' class='hoverable'><a href="/days">Days</a>
+				<li id='nav-li' ng-if='user' class='hoverable'><a href="/metrics">Metrics</a>
+				<li id='nav-li' ng-if='user' class='right hoverable'><a href="/" ng-click='logOut()'>Logout</a></li>
 			</ul>
 		</nav>
 	</header>
