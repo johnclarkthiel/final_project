@@ -35,9 +35,9 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 	this.days = [];
 	//said server - db - client get request
 	$http.get('user/' + $rootScope.user._id).then(function(response){
-		console.log('THIS DAYS RESPONSE', response);
+		// console.log('THIS DAYS RESPONSE', response);
 		// controller.days = response.data.day;
-		console.log("DAYS ", typeof controller.days);
+		// console.log("DAYS ", typeof controller.days);
 		for (var i = 0; i < response.data.day.length; i++){
 			controller.days.push(response.data.day[i]);
 		}
@@ -46,7 +46,7 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 	this.dayIndex = true;
 
 	this.showSurveyForm = function(day,search) {
-		console.log('SURVEY FORM WORKING');
+		// console.log('SURVEY FORM WORKING');
 		this.showQuestionnaire = true;
 		this.dayIndex = false;
 		
@@ -91,8 +91,8 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 		// console.log("SEARCH ", search);
 		// console.log("INDEX POS ", index)
 		$http.delete('/user/' + $rootScope.user._id + '/' + day._id + '/' + search._id).then(function(response){
-			console.log(response);
-			console.log($scope);
+			// console.log(response);
+			// console.log($scope);
 			// $location.path('/');
 			for (var i = 0; i < $scope.dayCtrl.days.length; i++) {
 				// console.log(day);

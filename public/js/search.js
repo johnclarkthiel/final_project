@@ -3,7 +3,7 @@ var app = angular.module('add-search', ['ngRoute']);
 app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope', '$routeParams', function($http,$scope,$location,$rootScope, $routeParams){
 	var controller = this;
 	this.days = $http.get('user/' + $rootScope.user._id).then(function(response){
-		console.log('THIS DAYS RESPONSE', response);
+		// console.log('THIS DAYS RESPONSE', response);
 		controller.days = response.data.day;
 	});
 
@@ -62,15 +62,15 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 	};
 	//http get request for retrieving movie review data from NYTIMES api
 	this.searchForMovies = function() {
-		console.log("SEARCH MOVIES WORKS!");
-		console.log(this.movieSearch);
+		// console.log("SEARCH MOVIES WORKS!");
+		// console.log(this.movieSearch);
 		var controller = this;
 		$http.get('http://api.nytimes.com/svc/movies/v2/reviews/search.json?query=' + this.movieSearch + '&api-key=72d465b11810bf799c7bc1d073b5014e:10:51925285').
 		then(function(response){
 			controller.showResults = true;
-			console.log(response);
+			// console.log(response);
 			controller.results = response.data.results;
-			console.log("CONTROLLER RESULTS ", controller.results);
+			// console.log("CONTROLLER RESULTS ", controller.results);
 			controller.movieSearch = undefined;
 		}, function(err){
 			console.log(err)
@@ -78,15 +78,15 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 	};
 	//http get request for retrieiving book review data from NYTIMES api
 	this.searchForBooks = function() {
-		console.log("SEARCH BOOKS WORKS!");
-		console.log(this.bookSearch);
+		// console.log("SEARCH BOOKS WORKS!");
+		// console.log(this.bookSearch);
 		var controller = this;
 		$http.get('http://api.nytimes.com/svc/books/v3/reviews/search.json?author=' + this.bookSearch + '&api-key=41d122abcaa833ff30fe9583273379d3:18:51925285').
 		then(function(response){
 			controller.showBookResults = true;
-			console.log(response);
+			// console.log(response);
 			controller.bookresults = response.data.results;
-			console.log("CONTROLLER RESULTS ", controller.bookresults);
+			// console.log("CONTROLLER RESULTS ", controller.bookresults);
 			controller.bookSearch = undefined;
 		}, function(err){
 			console.log(err)
@@ -94,15 +94,15 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 	};
 	//http get request for retrieving article data from NYTIMES api
 	this.searchForArticles = function() {
-		console.log("SEARCH ARTICLES WORKS!");
-		console.log(this.articleSearch);
+		// console.log("SEARCH ARTICLES WORKS!");
+		// console.log(this.articleSearch);
 		var controller = this;
 		$http.get('http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + this.articleSearch + '&api-key=05a267cb078d932cbb8605e7a2f17656:16:51925285').
 		then(function(response){
 			controller.showArticleResults = true;
-			console.log(response);
+			// console.log(response);
 			controller.articleresults = response.data.response.docs;
-			console.log("CONTROLLER RESULTS ", controller.articleresults);
+			// console.log("CONTROLLER RESULTS ", controller.articleresults);
 			controller.articleSearch = undefined;
 			}, function(err){
 			console.log(err)
@@ -111,15 +111,15 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 
 	//http get request for retrieving congressional bill data from NYTIMES api
 	this.searchForBills = function() {
-		console.log("SEARCH BILLS WORKS!");
-		console.log(this.billSearch);
+		// console.log("SEARCH BILLS WORKS!");
+		// console.log(this.billSearch);
 		var controller = this;
 		$http.get('http://api.nytimes.com/svc/politics/v3/us/legislative/congress/114/house/bills/'+this.billSearch+'.json?api-key=d453fc590cc3a176afe519a7462bd095:1:51925285').
 		then(function(response){
 			controller.showBillResults = true;
-			console.log(response);
+			// console.log(response);
 			controller.billresults = response.data.results[0].bills;
-			console.log("CONTROLLER RESULTS ", controller.billresults);
+			// console.log("CONTROLLER RESULTS ", controller.billresults);
 			controller.billSearch = undefined;
 		}, function(err){
 			console.log(err)
@@ -128,7 +128,7 @@ app.controller('SearchController', ['$http', '$scope', '$location', '$rootScope'
 	//will save a result, first pops up the save to day menu ... when a user clicks on a day, invokes the addToDay function, which takes the day in as a param and sends the day's id and the user's id to the server to add the search to the day
 	this.save = function(result, index) {
 		// console.log("SAVE WORKING");
-		console.log('RESULT ', result);
+		// console.log('RESULT ', result);
 		// console.log($rootScope.user);
 		// console.log($rootScope.user.day);
 		// console.log('INDEX ', index);

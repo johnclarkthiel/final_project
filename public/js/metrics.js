@@ -2,7 +2,7 @@ var app = angular.module('metrics', ['ngRoute']);
 
 app.controller('MetricsController', ['$http', '$scope', '$location', '$rootScope', '$routeParams', function($http,$scope,$location,$rootScope, $routeParams){
 	// $http.get('/user/' + $rootScope.user._id).then(function(response){
-
+	// 	$rootScope.user = response.data;
 	// });
 	// console.log($scope);
 	//var for the user's search ratings
@@ -64,7 +64,7 @@ app.controller('MetricsController', ['$http', '$scope', '$location', '$rootScope
 	};
 
 	this.devAvg = (this.devCount / this.sortRatings.length);
-	console.log("DEV AVG ", this.devAvg);
+	// console.log("DEV AVG ", this.devAvg);
 	
 	this.devSqArr = [];
 
@@ -73,7 +73,7 @@ app.controller('MetricsController', ['$http', '$scope', '$location', '$rootScope
 		this.meanDev = (parseInt(this.sortRatings[i]) - this.devAvg) * (parseInt(this.sortRatings[i]) - this.devAvg);
 		this.devSqArr.push(this.meanDev);
 	};
-	console.log("DEV SQUARE ARRAY ", this.devSqArr);
+	// console.log("DEV SQUARE ARRAY ", this.devSqArr);
 	
 	this.varianceCount = 0;
 
