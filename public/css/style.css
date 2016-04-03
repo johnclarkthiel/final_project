@@ -108,12 +108,8 @@ input {
 		margin-left: 0;
 	}
 
-	.day-wrapper {
-		font-size: 50%;
-	}
-
-	body, h1,h2,h3,h4, blockquote {
-		font-size: 50%;
+	* {
+		font-size: 10px;
 	}
 
 	a {
