@@ -9,25 +9,13 @@ var passport = require("passport");
 var User = require('../models/userSchema.js');
 var Day = require('../models/daySchema.js');
 var Search = require('../models/searchSchema.js');
-//Test if working
-router.get('/', function(req,res){
-		res.send("WORKING");
-});
+
 //LOGOUT
 router.get('/:id/logout', function(req,res){
 	console.log("LOGGED OUT");
 	req.logout();
 	res.send('USER LOGGED OUT ',req.user);
 });
-//SIGNUP
-router.post('/signup', passport.authenticate('local-signup', {
-	failureRedirect: '/google.com' //redirect if error
-	}), function(req, res) {
-		console.log("SIGNUP AND USER AUTH SUCCESS!");
-		console.log("REQ USER @@@@@@@", req.user);
-		res.send(req.user);
-	}
-);
 
 //get user
 router.get('/:id', function(req,res){
@@ -39,6 +27,15 @@ router.get('/:id', function(req,res){
 	});
 });
 
+//SIGNUP
+router.post('/signup', passport.authenticate('local-signup', {
+	failureRedirect: '/google.com' //redirect if error
+	}), function(req, res) {
+		console.log("SIGNUP AND USER AUTH SUCCESS!");
+		console.log("REQ USER @@@@@@@", req.user);
+		res.send(req.user);
+	}
+);
 
 //login
 router.post('/login', passport.authenticate('local-login', {
@@ -173,19 +170,26 @@ router.delete('/:id/:day_id', function(req,res){
 	});
 });
 
-//logged in check
-function isLoggedIn(req, res, next) {
-
-    // if user is authenticated in the session, carry on 
-    if (req.isAuthenticated()) {
-    		console.log("AUTHORIZED");
-        return next();
-     }
-    // if they aren't redirect them to the home page
-   	console.log("NOT AUTHORIZED");
-    res.redirect('/');
-};
-
 
 
 module.exports = router;
+
+
+//Test if working
+// router.get('/', function(req,res){
+// 		res.send("WORKING");
+// });
+
+//logged in check
+// function isLoggedIn(req, res, next) {
+
+//     // if user is authenticated in the session, carry on 
+//     if (req.isAuthenticated()) {
+//     		console.log("AUTHORIZED");
+//         return next();
+//      }
+//     // if they aren't redirect them to the home page
+//    	console.log("NOT AUTHORIZED");
+//     res.redirect('/');
+// };
+
