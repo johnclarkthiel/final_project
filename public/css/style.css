@@ -111,9 +111,7 @@ input {
 	*, nav, #boredButtonTxt, li, ol, ul, button {
 		font-size: 10px;
 		border: none;
-		display: block;
-		float: left;
-		clear: both;
+
 	}
 
 	a {
