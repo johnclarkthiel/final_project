@@ -42,13 +42,29 @@
 			<ul ng-model='$parent.searchBox' >
 				<li ng-repeat='search in day.search'>
 
-					<div ng-if='search.search_result.url'><h4><b>Book search:</b> <a href="{{search.search_result.url}}">{{search.search_result.book_title}}</a> </h4></div>
+					<div ng-if='search.search_result.url'><h4><b>Book search:</b> <a href="{{search.search_result.url}}">{{search.search_result.book_title}}</a> </h4>
+						<div ng-if='search.notes'>
+							<blockquote><h4>Search thoughts: {{search.notes}}</h4></blockquote>
+						</div>
+					</div>
 
-					<div ng-if='search.search_result.bill_uri'><h4><b>Bill search:</b> <br/>Bill title: {{search.search_result.title}}<br/> Bill committees: {{search.search_result.committees}}<br/> Bill number: {{search.search_result.number}}<br> Bill introduction date: {{search.search_result.introduced_date}} <br> Latest major action: {{search.search_result.latest_major_action}} <br> Latest major action date: {{search.search_result.latest_major_action_date}} </h4></div>
+					<div ng-if='search.search_result.bill_uri'><h4><b>Bill search:</b> <br/>Bill title: {{search.search_result.title}}<br/> Bill committees: {{search.search_result.committees}}<br/> Bill number: {{search.search_result.number}}<br> Bill introduction date: {{search.search_result.introduced_date}} <br> Latest major action: {{search.search_result.latest_major_action}} <br> Latest major action date: {{search.search_result.latest_major_action_date}} </h4>
+						<div ng-if='search.notes'>
+							<blockquote><h4>Search thoughts: {{search.notes}}</h4></blockquote>
+						</div>
+					</div>
 
-					<div ng-if='search.search_result.web_url'><h4><b>Article search:</b> <a href="{{search.search_result.web_url}}">{{search.search_result.headline.main}}</a></h4></div>
+					<div ng-if='search.search_result.web_url'><h4><b>Article search:</b> <a href="{{search.search_result.web_url}}">{{search.search_result.headline.main}}</a></h4>
+						<div ng-if='search.notes'>
+							<blockquote><h4>Search thoughts: {{search.notes}}</h4></blockquote>
+						</div>
+					</div>
 
-					<div ng-if='search.search_result.link.url'><h4><b>Movie search:</b> <a href="{{search.search_result.link.url}}">{{search.search_result.display_title}}</a></h4></div>
+					<div ng-if='search.search_result.link.url'><h4><b>Movie search:</b> <a href="{{search.search_result.link.url}}">{{search.search_result.display_title}}</a></h4>
+						<div ng-if='search.notes'>
+							<blockquote><h4>Search thoughts: {{search.notes}}</h4></blockquote>
+						</div>
+					</div>
 
 					<button ng-click='dayCtrl.showSurveyForm(day, search)' class="btn waves-effect waves-light hoverable blue-grey darken-4" type="submit" name="action">Did this search help?</button>
 					<br><br>
