@@ -72,6 +72,9 @@ input {
 	font-size: 75%;
 }
 
+#dayButton {
+	margin-left: 1%
+}
 
 @media (max-width: 1000px) {
 	#movie-search, #book-search, #article-search, #bill-search {
