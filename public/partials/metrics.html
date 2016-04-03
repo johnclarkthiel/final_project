@@ -1,55 +1,55 @@
-<div  ng-controller='MetricsController as metCtrl'>
-<table class='striped highlight centered responsive-table'>
-	<thead>
-		<th data-field='type'>Metric</th>
-		<th data-field='metric'>Number</th>
-	</thead>
+<div  ng-controller='MetricsController as metCtrl' class='metrics-div'>
+	<table class='striped highlight centered responsive-table'>
+		<thead>
+			<th data-field='type'>Metric</th>
+			<th data-field='metric'>Number</th>
+		</thead>
 
-	<tbody>
-		<tr>
-			<td>Avg Search Ratings</td>
-			<td>{{metCtrl.avg}}</td>
-		</tr>
-		<tr>
-			<td>Search Effectiveness (in relieving boredom)</td>
-			<td>Effective {{metCtrl.efficacy | number }}% of the time</td>
-		</tr>
-		<tr>
-			<td>Total Number of Searches</td>
-			<td>{{metCtrl.searches}}</td>
-		</tr>
-		<tr>
-			<td>Total Number of Times Bored</td>
-			<td>{{metCtrl.boredInstances}}</td>
-		</tr>
-		<tr>
-			<td>Number of Times bored per day</td>
-			<td>{{metCtrl.boredPerDay}}</td>
-		</tr>
-		<tr>
-			<td>Number of searches per day</td>
-			<td>{{metCtrl.searchesPerDay}}</td>
-		</tr>
-		<tr>
-			<td>Number of searches as a percentage of times bored</td>
-			<td>{{metCtrl.searchesPerBored | number }}%*</td>
-		</tr>
-		<tr>
-			<td>Average boredom severity</td>
-			<td> {{metCtrl.sevAvg}}</td>
-		</tr>
-		<tr>
-			<td>Median Search Ratings</td>
-			<td>{{metCtrl.median}}</td>
-		</tr>
-		<tr>
-			<td>Standard Deviation of search ratings</td>
-			<td>{{metCtrl.standardDeviation | number}}</td>
-		</tr>
-	</tbody>
-</table>
+		<tbody>
+			<tr>
+				<td><b>Total Number of Searches:</b></td>
+				<td>{{metCtrl.searches}}</td>
+			</tr>
+			<tr>
+				<td><b>Total Number of Times Bored:</b></td>
+				<td>{{metCtrl.boredInstances}}</td>
+			</tr>
+			<tr>
+				<td><b>Number of Times bored per day:</b></td>
+				<td>{{metCtrl.boredPerDay}}</td>
+			</tr>
+			<tr>
+				<td><b>Number of searches per day:</b></td>
+				<td>{{metCtrl.searchesPerDay}}</td>
+			</tr>
+			<tr>
+				<td><b>Number of searches as a percentage of times bored:</b></td>
+				<td>{{metCtrl.searchesPerBored | number }}%*</td>
+			</tr>
+			<tr>
+				<td><b>Average boredom severity:</b></td>
+				<td> {{metCtrl.sevAvg}}</td>
+			</tr>
+			<tr>
+				<td><b>Avg Search Ratings:</b></td>
+				<td>{{metCtrl.avg}}</td>
+			</tr>
+			<tr>
+				<td><b>Search Effectiveness:</b></td>
+				<td>{{metCtrl.efficacy | number }}%**</td>
+			</tr>
+			<tr>
+				<td><b>Median Search Ratings:</b></td>
+				<td>{{metCtrl.median}}</td>
+			</tr>
+			<tr>
+				<td><b>Standard Deviation of search ratings:</b></td>
+				<td>{{metCtrl.standardDeviation | number}}</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
-
+<br><br><br>
 <!-- <h1 ng-controller='MetricsController as metCtrl'>Your Boredom Metrics</h1>
 <h4>Avg Search Ratings: {{metCtrl.avg}}</h4>
 <h4>Search Effectiveness (in relieving boredom): Effective {{metCtrl.efficacy | number }}% of the time</h4>
@@ -66,4 +66,5 @@
 
 
 <!-- FIND SOME WAY TO USE WORDS MOST COMMONLY USED TO DESCRIBE BOREDOM ON BOTH INITIAL BOREDOM AND SURVEY? -->
-*i.e., percent of time you searched stuff to relieve boredom
+<div class='center-align'>* percent of time you searched stuff to relieve boredom <br/><br/>
+**effectiveness in relieving boredom</div>
