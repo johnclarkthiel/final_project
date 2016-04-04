@@ -70,6 +70,10 @@ app.get('/days', function(req,res){
 	res.redirect('/');
 });
 
+app.get('/login', function(req,res){
+	res.redirect('/');
+});
+
 //controllers
 var userController = require('./controllers/userController.js');
 app.use('/user', userController);
