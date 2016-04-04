@@ -108,7 +108,7 @@ input {
 		margin-left: 0;
 	}
 
-	*, #boredButtonTxt, li, ol, ul, button, h1,h2,h3,h4 {
+	*, #boredButtonTxt, li, ol, ul, button, h1,h2,h3,h4, #surveyForm {
 		border: none;
 	}
 
@@ -121,9 +121,10 @@ input {
 		width: 18%;
 	}
 
-	blockquote {
+	blockquote, blockquote > h4 {
 		display: block;
 		float: left;
+		clear: both;
 	}
 
 	a {

@@ -68,3 +68,8 @@
 <!-- FIND SOME WAY TO USE WORDS MOST COMMONLY USED TO DESCRIBE BOREDOM ON BOTH INITIAL BOREDOM AND SURVEY? -->
 <div class='center-align'>* percent of time you searched stuff to relieve boredom <br/><br/>
 **effectiveness in relieving boredom</div>
+
+<div ng-if="metCtrl.sevAvg >= 7.5 && metCtrl.standardDeviation >= 2.5"><b>Prognosis:</b> You're bored very often, and the oscillating, see-sawing rollercoaster that is your search methodology indicates you may be a trifle inconstant. This may be an indication of a larger problem. Read <a href="journey to the end of the night or post office">this.</a></div>
+<div ng-if="metCtrl.sevAvg >= 7.5 && metCtrl.standardDeviation <= 2.5 && metCtrl.avg <= 5"><b>Prognosis:</b>You're consistently bored, and your searches are consistently terrible. You lack imagination. Get a load of <a href="">this.</a></div>
+<div ng-if="metCtrl.sevAvg <= 7.5 && metCtrl.standardDeviation <= 2.5 && metCtrl.avg <= 5"><b>Prognosis:</b>You seem to be just killing time. Go outside, get some air, talk to another human being. Or check <a href="">this</a> out.</div>
+<div ng-if="metCtrl.sevAvg <= 7.5 && metCtrl.standardDeviation >= 2.5"><b>Prognosis:</b>You may be more bored than you think. Does everything suck? You might be thinking, "Why, yes it does." Wrong. <a href="">This</a> doesn't suck.</div>
