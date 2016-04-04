@@ -76,6 +76,12 @@ input {
 	margin-left: 1%
 }
 
+#billButton {
+	display: block;
+	float: left;
+	clear: both;
+}
+
 @media (max-width: 1000px) {
 	#movie-search, #book-search, #article-search, #bill-search {
 		width: 48%;

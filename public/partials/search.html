@@ -33,9 +33,15 @@
 	<!-- Form for bill search -->
 	<form ng-if='searchCtrl.searchBills'>
 		<h4 class='center'>Search for recent bills for:</h4>
-		<input type='text' name='billSearch' ng-model='searchCtrl.billSearch' placeholder='Enter passed, updated, introduced or major'>
-		<button ng-click='searchCtrl.searchForBills()' class="btn waves-effect waves-light hoverable blue-grey darken-4 center" type="submit" name="action">Search<i class="material-icons right">send</i>
-	  </button>
+		<!-- <input type='text' name='billSearch' ng-model='searchCtrl.billSearch' placeholder='Enter passed, updated, introduced or major'> -->
+		<div class='center-align'>
+			<input name='billSearch' type="radio" ng-model='searchCtrl.billSearch' value="passed" id='passed' /><label for='passed'>passed</label>
+			<input name='billSearch' type="radio" ng-model='searchCtrl.billSearch' value="updated" id='updated'/><label for='updated'>updated</label>
+			<input name='billSearch' type="radio" ng-model='searchCtrl.billSearch' value="introduced" id='introduced'/><label for='introduced'>introduced</label>
+			<input name='billSearch' type="radio" ng-model='searchCtrl.billSearch' value="major" id='major'/><label for='major'>major</label>
+			<button ng-click='searchCtrl.searchForBills()' class="btn waves-effect waves-light hoverable blue-grey darken-4 center" type="submit" name="action">Search<i class="material-icons right">send</i>
+	 </div>
+	  </button id='billButton'>
 </form>
 <!-- SEARCH RESULTS !!!! -->
 <!-- Div containing movie search results -->
