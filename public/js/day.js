@@ -121,8 +121,11 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 		});
 	};
 
+	// $scope.today = new Date().toISOString().split("T")[0];
+
 
 }]);//end Day controller
+
 
 //front end router to take logged in users to serach page once a day is added
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
