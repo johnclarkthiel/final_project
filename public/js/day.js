@@ -113,7 +113,11 @@ app.controller('DayController', ['$http', '$scope', '$location', '$rootScope', '
 		// console.log(day);
 		// console.log($scope);
 		$http.delete('/user/' + $rootScope.user._id + '/' + day._id ).then(function(response){
-			$scope.dayCtrl.days.splice(index,1);
+			for (var i = 0; i < $scope.dayCtrl.days.length; i++ ) {
+				if (day._id == $scope.dayCtrl.days[i]._id) {
+					$scope.dayCtrl.days.splice(i,1);
+				};
+			};
 		});
 	};
 
