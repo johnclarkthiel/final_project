@@ -69,7 +69,10 @@
 <div class='center-align'>* percent of time you searched stuff to relieve boredom <br/><br/>
 **effectiveness in relieving boredom</div>
 <br/><br/>
-<div ng-if="metCtrl.sevAvg >= 7.5 && metCtrl.standardDeviation >= 2.5"><b>Prognosis:</b> You're bored very often, and the oscillating, see-sawing rollercoaster that is your search methodology indicates you may be a trifle inconstant. This may be an indication of a larger problem. Read <a href="https://en.wikipedia.org/wiki/Journey_to_the_End_of_the_Night">this or <a href="https://en.wikipedia.org/wiki/Factotum_(novel)">this</a>.</a></div>
-<div ng-if="metCtrl.sevAvg >= 7.5 && metCtrl.standardDeviation <= 2.5 && metCtrl.avg <= 5"><b>Prognosis:</b>You're consistently bored, and your searches are consistently terrible. You lack imagination. Get a load of <a href="https://www.youtube.com/watch?v=xayz3cNAHxo">this.</a></div>
-<div ng-if="metCtrl.sevAvg <= 7.5 && metCtrl.standardDeviation <= 2.5 && metCtrl.avg <= 5"><b>Prognosis:</b>You seem to be just killing time. Go outside, get some air, talk to another human being. Or check <a href="https://en.wikipedia.org/wiki/Captain_Ron">this</a> out.</div>
-<div ng-if="metCtrl.sevAvg <= 7.5 && metCtrl.standardDeviation >= 2.5"><b>Prognosis:</b>You may be more bored than you think. Does everything suck? You might be thinking, "Why, yes it does." Wrong. <a href="https://en.wikipedia.org/wiki/The_Sun_Also_Rises">This</a> doesn't suck.</div>
+<div class='center-align' ng-if="metCtrl.sevAvg >= 7.5 && metCtrl.standardDeviation >= 2.5"><h4><b>Diagnosis:</b> You're bored very often, and the oscillating, see-sawing rollercoaster that is your search methodology indicates you may be a trifle inconstant. This may be an indication of a larger problem. Read <a href="https://en.wikipedia.org/wiki/Journey_to_the_End_of_the_Night">this or <a href="https://en.wikipedia.org/wiki/Factotum_(novel)">this</a>.</a></h4></div>
+
+<div class='center-align' ng-if="metCtrl.sevAvg >= 7.5 && metCtrl.standardDeviation <= 2.5 && metCtrl.avg <= 5"><h4><b>Diagnosis:</b>You're consistently bored, and your searches are consistently terrible. You lack imagination. Get a load of <a href="https://www.youtube.com/watch?v=xayz3cNAHxo">this.</a></h4></div>
+
+<div class='center-align' ng-if="metCtrl.sevAvg <= 7.5 && metCtrl.standardDeviation <= 2.5 && metCtrl.avg <= 5"><h4><b>Diagnosis:</b>You seem to be just killing time. Go outside, get some air, talk to another human being. Or check <a href="https://en.wikipedia.org/wiki/Captain_Ron">this</a> out.</h4></div>
+
+<div class='center-align' ng-if="metCtrl.sevAvg <= 7.5 && metCtrl.standardDeviation >= 2.5"><h4><b>Diagnosis:</b>You may be more bored than you think. Does everything suck? You might be thinking, "Why, yes it does." Wrong. <a href="https://en.wikipedia.org/wiki/The_Sun_Also_Rises">This</a> doesn't suck.</h4></div>
