@@ -141,3 +141,22 @@ input {
 		height: 10%;
 	}
 }
+
+.chartExample div {
+	font: 10px sans-serif;
+  background-color: black;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+.chartExampleTwo rect {
+	fill: black;
+}
+
+.chartExampleTwo text {
+	fill: white;
+	font: 10px sans-serif white;
+	text-anchor: end;
+}
