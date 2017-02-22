@@ -110,4 +110,9 @@ app.controller('MetricsController', ['$http', '$scope', '$location', '$rootScope
 
 	bar.append("text").attr("x", function(d) { return x(d) - 3; }).attr("y", barHeight / 2).attr("dy", ".35em").text(function(d) { return d; });
 
+	d3.tsv("./data.tsv", function(err,d){
+		console.log(d);
+		console.log(err);
+	});
+
 }]);//end metrics controller

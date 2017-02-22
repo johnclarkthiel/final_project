@@ -74,6 +74,16 @@ app.get('/login', function(req,res){
 	res.redirect('/');
 });
 
+var fs = require("fs");
+app.get('/data.tsv', function(req,res){
+	fs.readFile('./data.tsv', function(err,d){
+		if (err) {console.log(err);} else {
+			console.log("THIS IS THE D " + d);
+			res.send(d);	
+		}
+	});
+});
+
 //controllers
 var userController = require('./controllers/userController.js');
 app.use('/user', userController);
@@ -92,3 +102,4 @@ mongoose.connection.once('open', function(){
 		console.log("Listening on port:" + port);
 	});
 });
+
