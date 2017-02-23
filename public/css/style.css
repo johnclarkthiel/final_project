@@ -151,11 +151,11 @@ input {
   color: white;
 }
 
-.chartExampleTwo rect {
+.chartExampleTwo rect, .chartExampleThree rect {
 	fill: black;
 }
 
-.chartExampleTwo text {
+.chartExampleTwo text, .chartExampleThree text {
 	fill: white;
 	font: 10px sans-serif white;
 	text-anchor: end;
