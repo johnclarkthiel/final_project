@@ -7,6 +7,7 @@ var morgan = require('morgan');
 var passport = require('passport');
 var passportLocal = require('passport-local');
 var session = require('express-session');
+
 // var cookieSession = require('cookie-session');
 //cookie parser
 // var cookieParser = require('cookie-parser');
@@ -74,7 +75,8 @@ app.get('/login', function(req,res){
 	res.redirect('/');
 });
 
-var fs = require("fs");
+//var fs = require("fs");
+var fs = require('fs-extra');
 app.get('/data.tsv', function(req,res){
 	fs.readFile('./data.tsv', function(err,d){
 		if (err) {console.log(err);} else {
@@ -83,6 +85,24 @@ app.get('/data.tsv', function(req,res){
 		}
 	});
 });
+
+var path = ['./lib','./controllers', 'models',
+'public', 'node_modules', 'config'];
+
+try {
+	for (i = 0; i < path.length; i++){
+		console.log(fs.existsSync(path[i]));
+		console.log("................");
+		console.log("^^^^^^^^^^^^^^^^^^^");
+	}
+	if (!fs.existsSync('./DERPDIR')){
+		fs.mkdirSync('./DERPDIR', 0o777);
+	} else {
+		fs.removeSync('./DERPDIR');
+	}
+}catch (ex){
+	console.log("There was an error: " + ex);
+}
 
 //controllers
 var userController = require('./controllers/userController.js');
@@ -102,4 +122,6 @@ mongoose.connection.once('open', function(){
 		console.log("Listening on port:" + port);
 	});
 });
+
+
 

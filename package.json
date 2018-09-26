@@ -16,11 +16,16 @@
     "cookie-session": "^2.0.0-alpha.1",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
+    "file-system": "^2.2.2",
+    "fs-extra": "^4.0.1",
     "method-override": "^2.3.5",
     "mongoose": "^4.4.10",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-remember-me": "0.0.1"
+  },
+  "devDependencies": {
+    "cucumber": "^3.1.0"
   }
 }

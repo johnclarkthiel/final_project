@@ -171,6 +171,18 @@ router.delete('/:id/:day_id', function(req,res){
 	});
 });
 
+// //MSL 
+// var msl = require('../node_modules/msl-server/mslMiddleware.js');
+// var options = {
+//     express: [express],
+//     debug: [],
+//     extensions: [],
+//     localAppDir: [__dirname]
+// };
+// var mslRouter = msl(options);
+// router.use(mslRouter);
+
+
 
 
 module.exports = router;
